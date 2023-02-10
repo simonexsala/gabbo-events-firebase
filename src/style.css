@@ -1,0 +1,19 @@
+:root {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  overflow: hidden;
+
+  --primary: #966ae8;
+  --info: #35a7e0;
+  --danger: #ff5e5b;
+  --card: #001011;
+}
