@@ -6,7 +6,6 @@
     >
       <img
         src="../../public/locandina.jpg"
-        alt="locandina"
       >
       <template #title>
         <div class="!text-high-emphasis flex justify-between items-center">
