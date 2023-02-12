@@ -1,121 +1,122 @@
 <template>
   <div class="page m-4">
 
-      <ACard
-        :text="'Free drink ' + [this.$evento.drink] + '€, Birra illimitata ' + [this.$evento.birra] + '€'"
-        img="../../public/prevendita.jpg"
-        variant="fill"
-        color="var(--card)"
-      >
+    <ADialog
+      v-model="soldOut"
+      title="Prevendite sold out!"
+      variant="light"
+      color="var(--background)"
+      text="Ci dispiace, non sono più disponibili prevendite per questo evento."
+      persistent
+    >
+      <div class="a-card-body a-card-spacer">
+        <ABtn
+          variant="light"
+          class="text-sm"
+          @click="$router.push('/')"
+        >
+          Home
+        </ABtn>
+      </div>
+    </ADialog>
 
-        <template #title>
-          <div class="!text-high-emphasis flex justify-between items-center">
-            <span>{{ this.$evento.nome }}</span>
-            <a
-              target="_blank"
-              href=""
-              class="underline text-sm"
-            >Link</a>
-          </div>
-        </template>
-        <template #subtitle>
-          <div class="flex justify-between items-center">
-            <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
-          </div>
-        </template>
+    <ACard
+      :text="'Free drink ' + [this.$evento.drink] + '€, birra illimitata ' + [this.$evento.birra] + '€'"
+      img="../../public/prevendita.jpg"
+      variant="fill"
+      color="var(--card)"
+    >
 
-        <div class="a-card-body">
-
-          <!--
-          <div class="grid-row grid-cols-2 justify-items-stretch mb-4">
-            <ARadio
-              v-model="opzione"
-              value="drink"
-              label="Drink"
-              @click="prezzo=this.$evento.drink"
-            />
-            <ARadio
-              v-model="opzione"
-              value="birra"
-              label="Birra"
-              @click="prezzo=this.$evento.birra"
-            />
-          </div>
-          -->
-
-          <div v-if="birraDrink" class="grid-row grid-cols-2 justify-items-stretch mb-4">
-            <ABtn
-              v-model="opzione"
-              value="drink"
-              :variant="opzione === 'drink' ? 'fill' : 'light'"
-              @click="prezzo = this.$evento.drink; opzione = 'drink'"
-              class="w-full"
-            >
-              Drink
-            </ABtn>
-            <ABtn
-              v-model="opzione"
-              value="birra"
-              :variant="opzione === 'birra' ? 'fill' : 'light'"
-              @click="prezzo = this.$evento.birra; opzione = 'birra'"
-              class="w-full"
-            >
-              Birra
-            </ABtn>
-          </div>
-
-          <div class="flex">
-            <div class="w-full mb-4">
-              <ASelect
-                v-model="ingressi"
-                placeholder="Seleziona ingressi"
-                :options="numeri"
-              />
-            </div>
-          </div>
-
-          <div class="mb-2"> 
-            <div class="flex-inline items-center grid-row grid-cols-2 w-full">
-              <div class="items-center text-center bg-primary bg-opacity-50 p-2 w-full rounded-lg">
-                <span >
-                  {{ totale = ((ingressi * prezzo) +  (ingressi * prezzo) / 100 * 4).toFixed(2) }}€
-                </span>
-              </div>
-              <ABtn
-                variant="light"
-                icon="i-bx-heart"
-                class="w-full"
-                @click="isPaypalShown = true; prompt = totale + '€, per ' + ingressi + ' ingressi'"
-              >
-                Acquista
-              </ABtn>
-            </div> 
-          </div>
-          <p class="text-xs opacity-40 text-center">
-            Commissione del 4% automaticamente inclusa 
-          </p>
-
-          <ADialog
-            v-model="isPaypalShown"
-            title="Completa con Paypal"
-            :subtitle="[this.prompt]"
-            variant="light"
-            color="var(--background)"
-            persistent
-          >
-            <div class="a-card-body">
-              <div id="paypal-container" class="paypal mb-4" />
-              <ABtn
-                variant="light"
-                class="text-sm"
-                @click="isPaypalShown = false"
-              >
-                Indietro
-              </ABtn>
-            </div>
-          </ADialog>
+      <template #title>
+        <div class="!text-high-emphasis flex justify-between items-center">
+          <span>{{ this.$evento.nome }}</span>
+          <a
+            target="_blank"
+            href=""
+            class="underline text-sm"
+          >Link</a>
         </div>
-      </ACard>
+      </template>
+      <template #subtitle>
+        <div class="flex justify-between items-center">
+          <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
+        </div>
+      </template>
+
+      <div class="a-card-body">
+        <div v-if="birraDrink" class="grid-row grid-cols-2 justify-items-stretch mb-4">
+          <ABtn
+            v-model="opzione"
+            value="drink"
+            :variant="opzione === 'drink' ? 'fill' : 'light'"
+            @click="prezzo = this.$evento.drink; opzione = 'drink'"
+            class="w-full"
+          >
+            Drink
+          </ABtn>
+          <ABtn
+            v-model="opzione"
+            value="birra"
+            :variant="opzione === 'birra' ? 'fill' : 'light'"
+            @click="prezzo = this.$evento.birra; opzione = 'birra'"
+            class="w-full"
+          >
+            Birra
+          </ABtn>
+        </div>
+
+        <div class="flex">
+          <div class="w-full mb-4">
+            <ASelect
+              v-model="ingressi"
+              placeholder="Seleziona ingressi"
+              :options="numeri"
+            />
+          </div>
+        </div>
+
+        <div class="mb-2"> 
+          <div class="flex-inline items-center grid-row grid-cols-2 w-full">
+            <div class="items-center text-center bg-primary bg-opacity-50 p-2 w-full rounded-lg">
+              <span >
+                {{ totale = ((ingressi * prezzo) +  (ingressi * prezzo) / 100 * 4).toFixed(2) }}€
+              </span>
+            </div>
+            <ABtn
+              variant="light"
+              icon="i-bx-heart"
+              class="w-full"
+              @click="isPaypalShown = true; prompt = totale + '€, per ' + ingressi + ' ingressi ' + opzione"
+            >
+              Acquista
+            </ABtn>
+          </div> 
+        </div>
+        <p class="text-xs opacity-40 text-center">
+          Commissione del 4% automaticamente inclusa 
+        </p>
+
+        <ADialog
+          v-model="isPaypalShown"
+          title="Completa con Paypal"
+          :subtitle="[this.prompt]"
+          variant="light"
+          color="var(--background)"
+          persistent
+        >
+          <div class="a-card-body">
+            <div id="paypal-container" class="paypal mb-4" />
+            <ABtn
+              variant="light"
+              class="text-sm"
+              @click="isPaypalShown = false"
+            >
+              Indietro
+            </ABtn>
+          </div>
+        </ADialog>
+      </div>
+    </ACard>
 
   </div>
 </template>
@@ -130,7 +131,9 @@ export default {
       ingressi: 1,
       prezzo: this.$evento.drink,
       totale: this.prezzo + this.prezzo / 100 * 4,
-      prompt: this.totale + '€, per ' + this.ingressi + ' ingressi',
+      prompt: this.totale + '€, per ' + this.ingressi + ' ingressi ' + this.opzione,
+
+      soldOut: this.$evento.soldOut,
       isPaypalShown: false,
       isPaypalPaid: false,
       options: [this.$evento.drink, this.$evento.birra],

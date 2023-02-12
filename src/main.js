@@ -10,16 +10,19 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Carnival party',
-  data: '25 Febbraio',
-  luogo: 'Rosalpina',
+  nome: 'Il Carnevale della città',
+  data: '18 Febbraio',
+  luogo: 'Sanbapolis',
   birra: 17,
   drink: 15,
+  birraDrink: true,
+  navetteAttive: true,
+  soldOut: false,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'miao party',
-  data: '12 Novembre',
+  nome: 'Élite Party',
+  data: '4 Febbraio',
   luogo: 'BondONE',
   link: 'https://google.com',
 }

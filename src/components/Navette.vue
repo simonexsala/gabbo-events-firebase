@@ -1,5 +1,24 @@
 <template>
   <div class="page m-4">
+    <ADialog
+      v-model="navetteNonAttive"
+      title="Navette non disponibili!"
+      variant="light"
+      color="var(--background)"
+      text="Ci dispiace, non sono più disponibili navette per questo evento."
+      persistent
+    >
+      <div class="a-card-body a-card-spacer">
+        <ABtn
+          variant="light"
+          class="text-sm"
+          @click="$router.push('/')"
+        >
+          Home
+        </ABtn>
+      </div>
+    </ADialog>
+
     <ACard
       text="Prenota il posto per una singola persona, premi due volte per rimuovere la selezione"
       variant="fill"
@@ -111,6 +130,7 @@
 export default {
   data() {
     return {
+      navetteNonAttive: !this.$evento.navetteAttive, 
       optionsAndata: ['21:00', '22:00', '23:00'],
       selectedOptionAndata: '',
       optionsRitorno: ['01:00', '02:00', '03:00'],

@@ -45,26 +45,31 @@
     </ACard>
 
     <ACard
-      :text="'Assicurati il tuo ingresso con Free drink ' + [this.$evento.drink] + '€ o Birra illimitata ' + [this.$evento.birra] + '€'"
+      :text="text"
       variant="fill"
       color="primary"
       class="mt-4"
     >
       <template #title>
-          <div class="!text-high-emphasis flex justify-between items-center">
-            <span>{{ this.$evento.nome }}</span>
-            <a
-              target="_blank"
-              href=""
-              class="underline text-sm"
-            >Link</a>
-          </div>
-        </template>
-        <template #subtitle>
-          <div class="flex justify-between items-center">
-            <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
-          </div>
-        </template>
+        <div class="!text-high-emphasis flex justify-between items-center">
+          <span>{{ this.$evento.nome }}</span>
+          <a
+            target="_blank"
+            href=""
+            class="underline text-sm"
+          >Link</a>
+        </div>
+      </template>
+      <template #subtitle>
+        <div class="flex justify-between items-center">
+          <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
+        </div>
+      </template>
+      <template #text>
+        <div class="flex justify-between items-center">
+          <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
+        </div>
+      </template>
       <div class="a-card-body a-card-spacer">
         <ABtn color="info" @click="$router.push('/prevendite')">Prevendite</ABtn>
       </div>
@@ -79,7 +84,12 @@ export default {
     return {
       telefono: 'mailto: +393486493733',
       instagram: 'https://instagram.com/gabbo_events',
+      text: 'Assicurati il tuo ingresso',
     }
   },
+  mounted: function () {
+    if (this.$evento.birraDrink)
+      this.text = 'Assicurati il tuo ingresso con free drink ' + [this.$evento.drink] + '€ o birra illimitata ' + [this.$evento.birra] + '€'
+  }
 }
 </script>
