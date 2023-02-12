@@ -5,7 +5,10 @@
   <div class="content dots">
     <div class="grid-row grid-cols-2 pl-8 pr-8 items-center w-full">
       <img src="../public/logo.png" class="h-[10rem]" alt="logo" />
-      <span class="title text-primary">Gabbo Events</span>
+      <div>
+        <p class="title titleGabbo mb-2 text-xl text-primary">Gabbo</p>
+        <p class="title titleEvents text-sm text-primary">Events</p>
+      </div>
     </div>
 
     <div class="navbar p-3 ml-4 mr-4 rounded-lg text-center">
@@ -73,8 +76,13 @@
 <style scoped>
 .title {
   font-family: 'Fugaz One', cursive;
-  font-size: 2rem;
   text-transform: uppercase;
+}
+.titleGabbo {
+  font-size: 2.5rem;
+}
+.titleEvents {
+  font-size: 2rem;
 }
 
 a {

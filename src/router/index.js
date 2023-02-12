@@ -4,7 +4,6 @@ import Prevendite from '../components/Prevendite.vue'
 import Foto from '../components/Foto.vue'
 import Eventi from '../components/Eventi.vue'
 import Navette from '../components/Navette.vue'
-import Info from '../components/Info.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -28,10 +27,6 @@ const router = createRouter({
     {
       path: '/navette',
       component: Navette,
-    },
-    {
-      path: '/info',
-      component: Info,
     },
   ],
 })

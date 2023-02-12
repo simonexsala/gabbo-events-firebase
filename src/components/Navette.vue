@@ -7,12 +7,12 @@
     >
 
       <template #title>
-        <div class="flex justify-between items-center">
+        <div class="!text-high-emphasis flex justify-between items-center">
           <span>Navette {{ this.$evento.nome }}</span>
           <a
             target="_blank"
             href=""
-            class="!text-high-emphasis underline text-sm"
+            class="underline text-sm"
           >Link</a>
         </div>
       </template>

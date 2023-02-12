@@ -43,6 +43,33 @@
         </div>
       </div>
     </ACard>
+
+    <ACard
+      :text="'Assicurati il tuo ingresso con Free drink ' + [this.$evento.drink] + '€ o Birra illimitata ' + [this.$evento.birra] + '€'"
+      variant="fill"
+      color="primary"
+      class="mt-4"
+    >
+      <template #title>
+          <div class="!text-high-emphasis flex justify-between items-center">
+            <span>{{ this.$evento.nome }}</span>
+            <a
+              target="_blank"
+              href=""
+              class="underline text-sm"
+            >Link</a>
+          </div>
+        </template>
+        <template #subtitle>
+          <div class="flex justify-between items-center">
+            <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
+          </div>
+        </template>
+      <div class="a-card-body a-card-spacer">
+        <ABtn color="info" @click="$router.push('/prevendite')">Prevendite</ABtn>
+      </div>
+    </ACard>
+
   </div>
 </template>
 

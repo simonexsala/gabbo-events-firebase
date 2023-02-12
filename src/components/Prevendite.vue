@@ -9,12 +9,12 @@
       >
 
         <template #title>
-          <div class="flex justify-between items-center">
+          <div class="!text-high-emphasis flex justify-between items-center">
             <span>{{ this.$evento.nome }}</span>
             <a
               target="_blank"
               href=""
-              class="!text-light-emphasis underline text-sm"
+              class="underline text-sm"
             >Link</a>
           </div>
         </template>
