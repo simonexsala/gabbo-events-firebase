@@ -65,6 +65,8 @@
        <ADialog
           v-model="dialogPrenotazione"
           title="Conferma prenotazione"
+          variant="light"
+          color="var(--background)"
           :subtitle="[this.prompt]"
           persistent
         >
@@ -97,7 +99,7 @@
           class="mt-4"
           dismissible
         >
-          <span>Compila correttamente i campi! Nome e cognome e almeno un viaggio</span>
+          <span>Inserisci nome e cognome e seleziona almeno un viaggio!</span>
         </AAlert>
 
       </div>

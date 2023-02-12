@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 500;
 
@@ -11,9 +11,50 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   overflow: hidden;
+  
+  max-width: 600px;
+  margin: auto;
 
   --primary: #966ae8;
   --info: #35a7e0;
   --danger: #ff5e5b;
-  --card: #001011;
+  --card: #161032;
+  --background: #001011;
+}
+
+.background {
+	background: linear-gradient(45deg, 
+    #1fc19b,
+    #1b264b, 
+    #443a69, 
+    #e4256e,
+    #eb5e33 
+  );
+	background-size: 300% 300%;
+	animation: gradient 10s ease infinite;
+  animation-fill-mode: forwards;
+  height: 100vmax;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.dots {
+  background: radial-gradient(
+    rgba(255, 255, 255, 0.2) 8%,
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  height: 100%;
+  width: 100%;
 }
