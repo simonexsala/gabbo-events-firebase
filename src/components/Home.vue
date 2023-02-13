@@ -21,7 +21,7 @@
             class="text-sm"
           />
 
-          <a :href="'tel: +393486493733' + text[0]" class="text-sm font-semibold place-self-end">
+          <a :href="'tel: +393486493733'" class="text-sm font-semibold place-self-end">
           <ATypography
             :text="['348 649 3733', 'text-success']"
             class="text-sm font-semibold place-self-end"
@@ -38,7 +38,7 @@
             subtitle="la pagina social"
             class="text-sm"
           />
-          <a :href="'https://instagram.com/gabbo_events' + text[0]" class="text-sm font-semibold place-self-end">
+          <a :href="'https://instagram.com/gabbo_events'" class="text-sm font-semibold place-self-end">
           <ATypography
             :text="['@gabbo_events', 'text-danger']"
             class="text-sm font-semibold place-self-end"
