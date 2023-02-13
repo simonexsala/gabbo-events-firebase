@@ -20,6 +20,25 @@
       </div>
     </ADialog>
 
+    <ADialog
+      v-model="prevenditeOnline"
+      title="Prevendite non disponibili!"
+      variant="light"
+      color="var(--background)"
+      text="Ci dispiace, le prevendite per questo evento non sono disponibili online."
+      persistent
+    >
+      <div class="a-card-body a-card-spacer">
+        <ABtn
+          variant="light"
+          class="text-sm"
+          @click="$router.push('/')"
+        >
+          Home
+        </ABtn>
+      </div>
+    </ADialog>
+
     <ACard
       :text="'Free drink ' + [this.$evento.drink] + '€, birra illimitata ' + [this.$evento.birra] + '€'"
       img="../../public/prevendita.jpg"
@@ -101,11 +120,12 @@
           title="Completa con Paypal"
           :subtitle="[this.prompt]"
           variant="light"
-          color="var(--background)"
+          color="#FFF"
           persistent
         >
           <div class="a-card-body">
-            <div id="paypal-container" class="paypal mb-4" />
+            <div id="paypal-container" class="mb-4">
+            </div>
             <ABtn
               variant="light"
               class="text-sm"
@@ -155,6 +175,7 @@ export default {
       dateMessage: 'Ci viediamo il ' + this.$evento.data,
 
       soldOut: this.$evento.soldOut,
+      prevenditeOnline: this.$evento.prevenditeOnline,
       isPaypalShown: false,
       isPaypalPaid: false,
       options: [this.$evento.drink, this.$evento.birra],
@@ -171,7 +192,7 @@ export default {
       window.paypal.Buttons({
         style: {
           shape: 'pill',
-          color: 'gold',
+          color: 'blue',
           layout: 'vertical',
           label: 'paypal',
         },
@@ -200,6 +221,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>

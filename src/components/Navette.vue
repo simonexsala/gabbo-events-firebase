@@ -5,7 +5,7 @@
       title="Navette non disponibili!"
       variant="light"
       color="var(--background)"
-      text="Ci dispiace, non sono più disponibili navette per questo evento."
+      text="Ci dispiace, le navette per questo evento non sono disponibili."
       persistent
     >
       <div class="a-card-body a-card-spacer">
