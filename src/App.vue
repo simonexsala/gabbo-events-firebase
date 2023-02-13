@@ -11,13 +11,13 @@
       </div>
     </div>
 
-    <div class="navbar p-3 ml-4 mr-4 rounded-lg text-center">
-      <div class="inline-block">
-        <router-link class="" to="/">Home</router-link>
-        <router-link class="" to="/prevendite">Prevendite</router-link>
-        <router-link class="" to="/navette">Navette</router-link>
-        <router-link class="" to="/foto">Foto</router-link>
-        <router-link class="lastChild" to="/eventi">Eventi</router-link>
+    <div class="navbar ml-4 mr-4 rounded-lg text-center">
+      <div class="inline-block p-3">
+        <router-link class="pt-3 pb-2" to="/">Home</router-link>
+        <router-link class="pt-3 pb-2" to="/prevendite">Prevendite</router-link>
+        <router-link class="pt-3 pb-2" to="/navette">Navette</router-link>
+        <router-link class="pt-3 pb-2" to="/foto">Foto</router-link>
+        <router-link class="pt-3 pb-2 lastChild" to="/eventi">Eventi</router-link>
       </div>
     </div>
     <router-view v-slot="{ Component }">

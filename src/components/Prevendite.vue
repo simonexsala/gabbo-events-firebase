@@ -175,7 +175,7 @@ export default {
       dateMessage: 'Ci viediamo il ' + this.$evento.data,
 
       soldOut: this.$evento.soldOut,
-      prevenditeOnline: this.$evento.prevenditeOnline,
+      prevenditeOnline: !this.$evento.prevenditeOnline,
       isPaypalShown: false,
       isPaypalPaid: false,
       options: [this.$evento.drink, this.$evento.birra],
