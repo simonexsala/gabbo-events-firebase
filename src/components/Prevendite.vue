@@ -115,6 +115,26 @@
             </ABtn>
           </div>
         </ADialog>
+
+        <ADialog
+          v-model="isPaypalPaid"
+          title="Grazie per aver acquistato"
+          :subtitle="[this.dateMessage]"
+          text="Ricorda di controllare la mail per ulteriori informazioni."
+          variant="light"
+          color="var(--background)"
+          persistent
+        >
+          <div class="a-card-body">
+            <ABtn
+              variant="light"
+              class="text-sm"
+              @click="isPaypalPaid = false"
+            >
+              Indietro
+            </ABtn>
+          </div>
+        </ADialog>
       </div>
     </ACard>
 
@@ -132,6 +152,7 @@ export default {
       prezzo: this.$evento.drink,
       totale: this.prezzo + this.prezzo / 100 * 4,
       prompt: this.totale + '€, per ' + this.ingressi + ' ingressi ' + this.opzione,
+      dateMessage: 'Ci viediamo il ' + this.$evento.data,
 
       soldOut: this.$evento.soldOut,
       isPaypalShown: false,
@@ -171,6 +192,7 @@ export default {
           return actions.order.capture().then(function (orderData) {
             const transaction = orderData.purchase_units[0].payments.captures[0];
             this.isPaypalPaid = true;
+            this.isPaypalShown = false;
           });
         }
       }).render('#paypal-container');

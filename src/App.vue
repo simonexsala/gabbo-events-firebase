@@ -21,7 +21,7 @@
       </div>
     </div>
     <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
+      <transition name="slide-right" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <p class="text-xs opacity-40 text-center pb-2">
+    <p class="text-xs opacity-60 text-center pb-2">
       Creato e mantenuto da Simone Sala
     </p>
   </div>
@@ -103,10 +103,6 @@ a {
 a.router-link-active {
   border-bottom: 3px solid var(--info);
   color: var(--info);
-}
-
-.router-lionk (:last-of-type) a {
-  border-right: 1px dotted #ccc;
 }
 
 .navbar {

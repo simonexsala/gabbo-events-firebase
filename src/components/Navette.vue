@@ -20,7 +20,7 @@
     </ADialog>
 
     <ACard
-      text="Prenota il posto per una singola persona, premi due volte per rimuovere la selezione"
+      text="Prenota il posto per una singola persona, premi due volte su un'opzione per rimuovere la selezione"
       variant="fill"
       color="var(--card)"
     >
@@ -44,7 +44,7 @@
       <div class="a-card-body">
         <div class="grid-row grid-cols-2 justify-items-stretch">
           <div class="flex flex-col gap-y-3">
-            <span>Andata</span>
+            <span class="mx-a">Andata</span>
             <ABtn
               v-for="optionAndata in optionsAndata"
               :key="optionAndata"
@@ -55,7 +55,7 @@
             </ABtn>
           </div>
           <div class="flex flex-col gap-y-3">
-            <span>Ritorno</span>
+            <span class="mx-a">Ritorno</span>
             <ABtn
               v-for="optionRitorno in optionsRitorno"
               :key="optionRitorno"
@@ -103,7 +103,7 @@
                 variant="light"
                 color="success"
                 class="text-sm"
-                @click=""
+                @click="commitToFirebase()"
               >
                 Conferma
               </ABtn>
@@ -121,12 +121,35 @@
           <span>Inserisci nome e cognome e seleziona almeno un viaggio!</span>
         </AAlert>
 
+        <AAlert 
+          v-model="alertConfermaErrore"
+          variant="light"
+          color="danger"
+          class="mt-4"
+          dismissible
+        >
+          <span>C'è stato un errore nel confermare la prenotazione!</span>
+        </AAlert>
+
+        <AAlert 
+          v-model="alertConferma"
+          variant="light"
+          color="success"
+          class="mt-4"
+          dismissible
+        >
+          <span>La prenotazione è andata a buon fine!</span>
+        </AAlert>
+
       </div>
     </ACard>
   </div>
 </template>
 
 <script>
+import { db } from '../firebase'
+import { collection, addDoc } from "firebase/firestore";
+
 export default {
   data() {
     return {
@@ -141,6 +164,9 @@ export default {
 
       dialogPrenotazione: false,
       alertPrenotazione: false,
+      prenotazioneConfermata: false,
+      alertConferma: false,
+      alertConfermaErrore: false,
     }
   },
   methods: {
@@ -166,6 +192,21 @@ export default {
         this.alertPrenotazione = true
       }
     },
-  },
+    async commitToFirebase() {
+      this.alertPrenotazione = false
+      const docRef = await addDoc(collection(db, "navette"), {
+        nome: this.nome,
+        optionAndata: this.selectedOptionAndata,
+        optionRitorno: this.selectedOptionRitorno 
+      })
+      if(docRef) {
+        this.alertConferma = true
+      } else {
+        this.alertConfermaErrore = true
+      }
+
+      this.dialogPrenotazione = false
+    },
+  }
 }
 </script>
