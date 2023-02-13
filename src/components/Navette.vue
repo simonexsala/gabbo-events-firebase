@@ -45,24 +45,26 @@
         <div class="grid-row grid-cols-2 justify-items-stretch">
           <div class="flex flex-col gap-y-3">
             <span class="mx-a">Andata</span>
-            <ABtn
-              v-for="optionAndata in optionsAndata"
-              :key="optionAndata"
-              :variant="selectedOptionAndata === optionAndata ? 'fill' : 'light'"
-              @click="selectAndata(selectedOptionAndata === optionAndata ? '' : optionAndata)"
-            >
-              {{ optionAndata }}
-            </ABtn>
+              <ABtn
+                v-for="viaggio in viaggiAndata"
+                :key="viaggio.time"
+                :variant="selectedOptionAndata === viaggio.time ? 'fill' : 'light'"
+                :disabled="isButtonDisabled(viaggio)"
+                @click="selectAndata(selectedOptionAndata === viaggio.time ? '' : viaggio.time)"
+              >
+                {{ viaggio.time }}
+              </ABtn>
           </div>
           <div class="flex flex-col gap-y-3">
             <span class="mx-a">Ritorno</span>
             <ABtn
-              v-for="optionRitorno in optionsRitorno"
-              :key="optionRitorno"
-              :variant="selectedOptionRitorno === optionRitorno ? 'fill' : 'light'"
-              @click="selectRitorno(selectedOptionRitorno === optionRitorno ? '' : optionRitorno)"
+              v-for="viaggio in viaggiRitorno"
+              :key="viaggio.time"
+              :variant="selectedOptionRitorno === viaggio.time ? 'fill' : 'light'"
+              :disabled="isButtonDisabled(viaggio)"
+              @click="selectRitorno(selectedOptionRitorno === viaggio.time ? '' : viaggio.time)"
             >
-              {{ optionRitorno }}
+              {{ viaggio.time }}
             </ABtn>
           </div>
         </div>
@@ -148,17 +150,50 @@
 
 <script>
 import { db } from '../firebase'
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, where, getCountFromServer } from "firebase/firestore";
 
 export default {
   data() {
     return {
       navetteNonAttive: !this.$evento.navetteAttive, 
-      optionsAndata: ['21:00', '22:00', '23:00'],
       selectedOptionAndata: '',
-      optionsRitorno: ['01:00', '02:00', '03:00'],
       selectedOptionRitorno: '',
       nome: '',
+
+      viaggiAndata: [
+        {
+          time: '21:00',
+          available: 5,
+          booked: 0
+        },
+        {
+          time: '22:00',
+          available: 7,
+          booked: 0
+        },
+        {
+          time: '23:00',
+          available: 9,
+          booked: 0
+        }
+      ],
+      viaggiRitorno: [
+        {
+          time: '01:00',
+          available: 4,
+          booked: 0
+        },
+        {
+          time: '02:00',
+          available: 1,
+          booked: 0
+        },
+        {
+          time: '03:00',
+          total: 10,
+          booked: 0
+        },
+      ],
 
       prompt: '',
 
@@ -169,13 +204,39 @@ export default {
       alertConfermaErrore: false,
     }
   },
+
+  created() {
+    this.getNumeroPrenotazioni()
+  },
+
+  watch: {
+    alertConferma(newVal) {
+      if (newVal) {
+        setTimeout(() => {
+          this.alertConferma = false;
+        }, 3000);
+      }
+    },
+    alertConfermaErrore(newVal) {
+      if (newVal) {
+        setTimeout(() => {
+          this.alertConfermaErrore = false;
+        }, 3000);
+      }
+    }
+  },
+
   methods: {
+    isButtonDisabled(viaggio) {
+      return viaggio.available <= viaggio.booked
+    },
     selectAndata(option) {
       this.selectedOptionAndata = option
     },
     selectRitorno(option) {
       this.selectedOptionRitorno = option
     },
+
     datiValidi() {
       this.prompt = 'A nome ' + this.nome 
       if (this.selectedOptionAndata)
@@ -184,6 +245,7 @@ export default {
         this.prompt += ', ritorno ' + this.selectedOptionRitorno
       return this.nome && (this.selectedOptionAndata || this.selectedOptionRitorno);
     },
+
     handlePrenota() {
       if (this.datiValidi()) {
         this.dialogPrenotazione = true
@@ -192,6 +254,7 @@ export default {
         this.alertPrenotazione = true
       }
     },
+
     async commitToFirebase() {
       this.alertPrenotazione = false
       const docRef = await addDoc(collection(db, "navette"), {
@@ -199,6 +262,7 @@ export default {
         optionAndata: this.selectedOptionAndata,
         optionRitorno: this.selectedOptionRitorno 
       })
+
       if(docRef) {
         this.alertConferma = true
       } else {
@@ -206,6 +270,42 @@ export default {
       }
 
       this.dialogPrenotazione = false
+      this.selectedOptionAndata = ''
+      this.selectedOptionRitorno = ''
+      this.nome = ''
+      this.getNumeroPrenotazioni()
+    },
+
+    async getNumeroPrenotazioni() {
+      const navetteRef = collection(db, "navette")
+      const countArrayAndata = []
+      const countArrayRitorno = []
+
+      for (let i = 0; i < this.viaggiAndata.length; i++) {
+        const q = query(navetteRef, where("optionAndata", "==", this.viaggiAndata[i].time))
+        const snapshot = await getCountFromServer(q)
+        countArrayAndata[i] = snapshot.data().count
+      }
+
+      for (let i = 0; i < this.viaggiRitorno.length; i++) {
+        const q = query(navetteRef, where("optionRitorno", "==", this.viaggiRitorno[i].time))
+        const snapshot = await getCountFromServer(q)
+        countArrayRitorno[i] = snapshot.data().count
+      }
+
+      countArrayAndata.forEach((count, index) => {
+        const viaggiIndex = this.viaggiAndata.findIndex(viaggio => viaggio.time === this.viaggiAndata[index].time)
+        if (viaggiIndex !== -1) {
+          this.viaggiAndata[viaggiIndex].booked = count
+        }
+      })
+
+      countArrayRitorno.forEach((count, index) => {
+        const viaggiIndex = this.viaggiRitorno.findIndex(viaggio => viaggio.time === this.viaggiRitorno[index].time)
+        if (viaggiIndex !== -1) {
+          this.viaggiRitorno[viaggiIndex].booked = count
+        }
+      })
     },
   }
 }
