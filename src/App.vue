@@ -3,11 +3,11 @@
 
 <template>
   <div class="content dots">
-    <div class="grid-row grid-cols-2 pl-8 pr-8 items-center w-full">
+    <div class="grid-row grid-cols-2 pl-8 pr-8 justify-center flex items-center w-full">
       <img src="../public/logo.png" class="h-[10rem]" alt="logo" />
       <div>
-        <p class="title titleGabbo mb-2 text-xl text-primary">Gabbo</p>
-        <p class="title titleEvents text-sm text-primary">Events</p>
+        <p class="title titleGabbo mb-2 text-xl text-primary select-none">Gabbo</p>
+        <p class="title titleEvents text-sm text-primary select-none">Events</p>
       </div>
     </div>
 
@@ -94,9 +94,15 @@ a {
   margin-right: 0;
 }
 
-@media (max-width: 370px) {
+@media (max-width: 355px) {
   a {
-  font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 355px) and (max-width: 380px) {
+  a {
+    font-size: 0.9rem;
   }
 }
 
