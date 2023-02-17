@@ -1,13 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../components/Home.vue'
-import Prevendite from '../components/Prevendite.vue'
-import Foto from '../components/Foto.vue'
-import Eventi from '../components/Eventi.vue'
-import Navette from '../components/Navette.vue'
-import Error404 from '../components/Error404.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -15,23 +10,28 @@ const router = createRouter({
     },
     {
       path: '/prevendite',
-      component: Prevendite,
+      name: 'prevendite',
+      component: () => import('../components/Prevendite.vue')
     },
     {
       path: '/eventi',
-      component: Eventi,
+      name: 'eventi',
+      component: () => import('../components/Eventi.vue')
     },
     {
       path: '/foto',
-      component: Foto,
+      name: 'foto',
+      component: () => import('../components/Foto.vue')
     },
     {
       path: '/navette',
-      component: Navette,
+      name: 'navette',
+      component: () => import('../components/Navette.vue')
     },
     { 
       path: "/:pathMatch(.*)*", 
-      component: Error404,
+      name: '404',
+      component: () => import('../components/Error404.vue')
     },
   ],
 })
