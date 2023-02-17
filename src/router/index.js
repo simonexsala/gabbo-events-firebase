@@ -30,7 +30,7 @@ const router = createRouter({
       component: Navette,
     },
     { 
-      path: "/:catchAll(.*)", 
+      path: "/:pathMatch(.*)*", 
       component: Error404,
     },
   ],
