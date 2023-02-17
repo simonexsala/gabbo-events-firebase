@@ -6,6 +6,7 @@
     >
       <img
         src="../../public/evento.jpg"
+        alt=""
       >
       <template #title>
         <div class="!text-high-emphasis flex justify-between items-center">

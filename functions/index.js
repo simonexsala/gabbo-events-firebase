@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -17,13 +18,29 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/', (req, res) => {
-  const payload = req.body;
+  const headers = req.headers;
+  const body = req.body;
 
-  if (payload.event_type === 'PAYMENT.SALE.COMPLETED') {
-    // Handle the completed payment
-    const paymentID = payload.resource.id;
-    const amount = payload.resource.amount.total;
-    const email = payload.resource.payer.email_address;
+  // Verify PayPal signature
+  // add to .env.local
+  const PAYPAL_WEBHOOK_ID = '<your_paypal_webhook_id>';
+  const PAYPAL_API_SECRET = '<your_paypal_api_secret>';
+
+  const signature = headers['paypal-signature'];
+  const verificationData = JSON.stringify(body);
+  const expectedSignature = crypto.createHmac('sha256', PAYPAL_API_SECRET)
+                                  .update(verificationData)
+                                  .digest('hex');
+
+  if (signature !== expectedSignature) {
+    console.error('PayPal signature verification failed.');
+    return res.status(401).send('Unauthorized request');
+  }
+
+  if (body.event_type === 'PAYMENT.SALE.COMPLETED') {
+    const paymentID = body.resource.id;
+    const amount = body.resource.amount.total;
+    const email = body.resource.payer.email_address;
 
     console.log(`Payment of ${amount} completed with ID: ${paymentID}`);
 
@@ -45,10 +62,11 @@ app.post('/', (req, res) => {
     });
   } else {
     // Handle other events, such as payment refunds or disputes
-    console.log(`Received event of type: ${payload.event_type}`);
+    console.log(`Received event of type: ${body.event_type}`);
 
     return res.status(200).send('Event processed successfully');
   }
 });
+
 
 exports.webhook = functions.https.onRequest(app);

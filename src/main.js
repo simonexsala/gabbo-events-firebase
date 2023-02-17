@@ -15,10 +15,10 @@ app.config.globalProperties.$evento = {
   luogo: 'Sanbapolis',
   birra: 17,
   drink: 15,
-  birraDrink: true,
-  navetteAttive: true,
+  birraDrink: false,
+  navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: true,
+  prevenditeOnline: false,
 }
 
 app.config.globalProperties.$oldEvento = {

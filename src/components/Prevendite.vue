@@ -42,6 +42,7 @@
     <ACard
       :text="'Free drink ' + [this.$evento.drink] + '€, birra illimitata ' + [this.$evento.birra] + '€'"
       img="../../public/prevendita.jpg"
+      imgAlt=""
       variant="fill"
       color="var(--card)"
     >
@@ -124,8 +125,10 @@
           persistent
         >
           <div class="a-card-body">
-            <div id="paypal-container" class="mb-4">
+            <div v-if="isPaypalLoading" class="flex justify-center items-center">
+              <div class="spinner inline-block w-24 h-24" role="status" />
             </div>
+            <div id="paypal-container" class="mb-4" />
             <ABtn
               variant="light"
               class="text-sm"
@@ -172,12 +175,13 @@ export default {
       prezzo: this.$evento.drink,
       totale: this.prezzo + this.prezzo / 100 * 4,
       prompt: this.totale + '€, per ' + this.ingressi + ' ingressi ' + this.opzione,
-      dateMessage: 'Ci viediamo il ' + this.$evento.data,
+      dateMessage: 'Ci vediamo il ' + this.$evento.data,
 
       soldOut: this.$evento.soldOut,
       prevenditeOnline: !this.$evento.prevenditeOnline,
       isPaypalShown: false,
       isPaypalPaid: false,
+      isPaypalLoading: true,
       options: [this.$evento.drink, this.$evento.birra],
     }
   },
@@ -189,6 +193,7 @@ export default {
   },
   methods: {
     setLoaded: function () {
+      this.isPaypalLoading = false;
       window.paypal.Buttons({
         style: {
           shape: 'pill',
@@ -221,3 +226,21 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.spinner {
+  border: 5px solid #000;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 
+</style>
