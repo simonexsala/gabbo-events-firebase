@@ -1,4 +1,5 @@
 <script setup>
+  import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -13,18 +14,18 @@
 
     <div class="navbar ml-4 mr-4 rounded-lg text-center">
       <div class="inline-block p-3">
-        <router-link class="pt-3 pb-2" to="/">Home</router-link>
-        <router-link class="pt-3 pb-2" to="/prevendite">Prevendite</router-link>
-        <router-link class="pt-3 pb-2" to="/navette">Navette</router-link>
-        <router-link class="pt-3 pb-2" to="/foto">Foto</router-link>
-        <router-link class="pt-3 pb-2 lastChild" to="/eventi">Eventi</router-link>
+        <RouterLink class="pt-3 pb-2" to="/">Home</RouterLink>
+        <RouterLink class="pt-3 pb-2" to="/prevendite">Prevendite</RouterLink>
+        <RouterLink class="pt-3 pb-2" to="/navette">Navette</RouterLink>
+        <RouterLink class="pt-3 pb-2" to="/foto">Foto</RouterLink>
+        <RouterLink class="pt-3 pb-2 lastChild" to="/eventi">Eventi</RouterLink>
       </div>
     </div>
-    <router-view v-slot="{ Component }">
+    <RouterView v-slot="{ Component }">
       <transition name="slide-right" mode="out-in">
         <component :is="Component" />
       </transition>
-    </router-view>
+    </RouterView>
 
    <div class="grid-row grid-cols-3 mb-4">
       <div class="flex gap-x-2 ml-4 items-center">
