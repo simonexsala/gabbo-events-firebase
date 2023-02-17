@@ -40,7 +40,7 @@
     </ADialog>
 
     <ACard
-      :text="'Free drink ' + [this.$evento.drink] + '€, birra illimitata ' + [this.$evento.birra] + '€'"
+      :text="textBirraDrink"
       img="../../public/prevendita.jpg"
       imgAlt=""
       variant="fill"
@@ -99,14 +99,14 @@
           <div class="flex-inline items-center grid-row grid-cols-2 w-full">
             <div class="items-center text-center bg-primary bg-opacity-50 p-2 w-full rounded-lg">
               <span >
-                {{ totale = ((ingressi * prezzo) +  (ingressi * prezzo) / 100 * 4).toFixed(2) }}€
+                {{ totale = ((ingressi * prezzo) +  (ingressi * prezzo) / 100 * 4).toFixed(1) }}0€
               </span>
             </div>
             <ABtn
               variant="light"
               icon="i-bx-heart"
               class="w-full"
-              @click="isPaypalShown = true; prompt = totale + '€, per ' + ingressi + ' ingressi ' + opzione"
+              @click="isPaypalShown = true; prompt = totale + '0€, per ' + ingressi + ' ingressi ' + opzione"
             >
               Acquista
             </ABtn>
@@ -169,12 +169,14 @@ export default {
   data() {
     return {
       numeri: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      birraDrink: true,
+      birraDrink: this.$evento.birraDrink,
+      textBirraDrink: this.$evento.birraDrink ? 'Free drink ' + this.$evento.drink + '€, birra illimitata ' + this.$evento.birra + '€' : 'Free drink ' + this.$evento.drink + '€',
+
       opzione: 'drink',
       ingressi: 1,
       prezzo: this.$evento.drink,
       totale: this.prezzo + this.prezzo / 100 * 4,
-      prompt: this.totale + '€, per ' + this.ingressi + ' ingressi ' + this.opzione,
+      prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi ' + this.opzione,
       dateMessage: 'Ci vediamo il ' + this.$evento.data,
 
       soldOut: this.$evento.soldOut,

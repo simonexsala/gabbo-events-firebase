@@ -8,17 +8,19 @@ import 'anu-vue/dist/style.css'
 import '@anu-vue/preset-theme-default/dist/style.css'
 import './style.css'
 
+import VueCountdown from '@chenfengyuan/vue-countdown';
+
 const app = createApp(App)
 app.config.globalProperties.$evento = {
   nome: 'Il Carnevale della città',
   data: '18 Febbraio',
   luogo: 'Sanbapolis',
-  birra: 17,
+  birra: 18,
   drink: 15,
-  birraDrink: false,
-  navetteAttive: false,
+  birraDrink: true,
+  navetteAttive: true,
   soldOut: false,
-  prevenditeOnline: false,
+  prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
@@ -30,4 +32,5 @@ app.config.globalProperties.$oldEvento = {
 
 app.use(router)
 app.use(anu)
+app.component(VueCountdown.name, VueCountdown);
 app.mount('#app')
