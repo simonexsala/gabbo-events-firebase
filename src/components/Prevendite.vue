@@ -122,13 +122,14 @@
           :subtitle="[this.prompt]"
           variant="light"
           color="#FFF"
+          img="../../public/prevendita.jpg"
           persistent
         >
           <div class="a-card-body">
-            <div v-if="isPaypalLoading" class="flex justify-center items-center">
+            <div v-if="isPaypalLoading" class="mb-7 flex justify-center items-center">
               <div class="spinner inline-block w-24 h-24" role="status" />
             </div>
-            <div id="paypal-container" class="mb-4" />
+            <div id="paypal-container" />
             <ABtn
               variant="light"
               class="text-sm"
@@ -184,7 +185,15 @@ export default {
       isPaypalShown: false,
       isPaypalPaid: false,
       isPaypalLoading: true,
+      isPaypalLoadingReq: true,
       options: [this.$evento.drink, this.$evento.birra],
+    }
+  },
+  watch: {
+    isPaypalShown: function(newVal, oldVal) {
+      if (newVal === true) {
+        this.hidePaypalContainer();
+      }
     }
   },
   mounted: function () {
@@ -194,8 +203,21 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
+    hidePaypalContainer: function() {
+      this.isPaypalLoading = true
+      document.getElementById('paypal-container').style.display = 'none'
+
+      setTimeout(() => {
+        document.getElementById('paypal-container').style.display = 'block'
+        if (this.isPaypalLoadingReq)
+          this.isPaypalLoading = true
+        else
+          this.isPaypalLoading = false
+      }, 3000);
+    },
+
     setLoaded: function () {
-      this.isPaypalLoading = false;
+      this.isPaypalLoadingReq = false
       window.paypal.Buttons({
         style: {
           shape: 'pill',
