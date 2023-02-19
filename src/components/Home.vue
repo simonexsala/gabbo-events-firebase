@@ -86,12 +86,8 @@
 export default {
   data() {
     return {
-      text: 'Assicurati il tuo ingresso',
+      text: 'Assicurati il tuo ingresso al prossimo evento.',
     }
   },
-  mounted: function () {
-    if (this.$evento.birraDrink)
-      this.text = 'Assicurati il tuo ingresso con free drink ' + [this.$evento.drink] + '€ o birra illimitata ' + [this.$evento.birra] + '€'
-  }
 }
 </script>

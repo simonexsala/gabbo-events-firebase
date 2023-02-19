@@ -17,7 +17,12 @@ app.config.globalProperties.$evento = {
 
   birra: 18,
   drink: 15,
-  birraDrink: false,
+  tavolo: 25,
+
+  birraOpzione: false,
+  drinkOpzione: true,
+  tavoloOpzione: true,
+  
   navetteAttive: false,
   soldOut: false,
   prevenditeOnline: true,

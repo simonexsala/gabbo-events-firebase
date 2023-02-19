@@ -40,7 +40,7 @@
     </ADialog>
 
     <ACard
-      :text="textBirraDrink"
+      :text="textConditions"
       img="../../public/prevendita.jpg"
       imgAlt=""
       variant="fill"
@@ -64,12 +64,13 @@
       </template>
 
       <div class="a-card-body">
-        <div v-if="birraDrink" class="grid-row grid-cols-2 justify-items-stretch mb-4">
+        <div class="grid-row grid-cols-3 justify-items-stretch mb-4">
           <ABtn
             v-model="opzione"
             value="drink"
             :variant="opzione === 'drink' ? 'fill' : 'light'"
             @click="prezzo = this.$evento.drink; opzione = 'drink'"
+            :disabled="drinkActive"
             class="w-full"
           >
             Drink
@@ -79,9 +80,20 @@
             value="birra"
             :variant="opzione === 'birra' ? 'fill' : 'light'"
             @click="prezzo = this.$evento.birra; opzione = 'birra'"
+            :disabled="birraActive"
             class="w-full"
           >
             Birra
+          </ABtn>
+          <ABtn
+            v-model="opzione"
+            value="tavolo"
+            :variant="opzione === 'tavolo' ? 'fill' : 'light'"
+            @click="prezzo = this.$evento.tavolo; opzione = 'tavolo'; if (ingressi < 6) { ingressi = 6; }"
+            :disabled="tavoloActive"
+            class="w-full"
+          >
+            Tavolo
           </ABtn>
         </div>
 
@@ -170,8 +182,12 @@ export default {
   data() {
     return {
       numeri: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      birraDrink: this.$evento.birraDrink,
-      textBirraDrink: this.$evento.birraDrink ? 'Free drink ' + this.$evento.drink + '€, birra illimitata ' + this.$evento.birra + '€' : 'Free drink ' + this.$evento.drink + '€',
+
+      drinkActive: !this.$evento.drinkOpzione,
+      birraActive: !this.$evento.birraOpzione,
+      tavoloActive: !this.$evento.tavoloOpzione,
+
+      textConditions: '',
 
       opzione: 'drink',
       ingressi: 1,
@@ -187,7 +203,7 @@ export default {
       isPaypalPaid: false,
       isPaypalLoading: true,
       isPaypalLoadingReq: true,
-      options: [this.$evento.drink, this.$evento.birra],
+      options: [this.$evento.drink, this.$evento.birra, this.$evento.tavolo],
     }
   },
   watch: {
@@ -202,6 +218,13 @@ export default {
     script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AYt8UxPRZS1k32KYmPOV142g7_hmJbEFpNmooZ73Ts79E6PWT4dNM94czFJzE-EJWF2iV3Ue1yaIRkKP";
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
+
+    if (!this.drinkActive)
+      this.textConditions += "Free drink " + this.$evento.drink + "€";
+    if (!this.birraActive)
+      this.textConditions += ", birra illimitata " + this.$evento.birra + "€";
+    if (!this.tavoloActive)
+      this.textConditions += ", tavolo " + this.$evento.tavolo + "€";
   },
   methods: {
     hidePaypalContainer: function() {
