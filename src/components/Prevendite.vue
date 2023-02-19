@@ -52,7 +52,7 @@
           <span>{{ this.$evento.nome }}</span>
           <a
             target="_blank"
-            href=""
+            :href="link"
             class="underline text-sm"
           >Link</a>
         </div>
@@ -179,6 +179,7 @@ export default {
       totale: this.prezzo + this.prezzo / 100 * 4,
       prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi ' + this.opzione,
       dateMessage: 'Ci vediamo il ' + this.$evento.data,
+      link: this.$evento.link,
 
       soldOut: this.$evento.soldOut,
       prevenditeOnline: !this.$evento.prevenditeOnline,

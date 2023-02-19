@@ -13,7 +13,7 @@
           <span>{{ this.$evento.nome }}</span>
           <a
             target="_blank"
-            href=""
+            :href="link"
             class="underline text-sm"
           >Link</a>
         </div>
@@ -26,3 +26,13 @@
     </ACard>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      link: this.$evento.link,
+    }
+  },
+}
+</script>
