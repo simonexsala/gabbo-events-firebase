@@ -46,7 +46,6 @@
       variant="fill"
       color="var(--card)"
     >
-
       <template #title>
         <div class="!text-high-emphasis flex justify-between items-center">
           <span>{{ this.$evento.nome }}</span>
@@ -135,6 +134,7 @@
           variant="light"
           color="#FFF"
           img="../../public/prevendita.jpg"
+          alt=""
           persistent
         >
           <div class="a-card-body">

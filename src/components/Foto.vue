@@ -15,7 +15,16 @@
             target="_blank"
             :href="link"
             class="underline text-sm"
-          >link</a>
+          >
+            link
+          </a>
+          <a
+            target="_blank"
+            href="https://we.tl/t-e6LXx9imel"
+            class="underline text-sm"
+          >
+            link
+          </a>
         </div>
       </template>
       <template #subtitle>
