@@ -41,7 +41,7 @@
 
     <ACard
       :text="textConditions"
-      img="../../public/prevendita.jpg"
+      img="../../public/prevendite.jpg"
       imgAlt=""
       variant="fill"
       color="var(--card)"
@@ -133,7 +133,7 @@
           :subtitle="[this.prompt]"
           variant="light"
           color="#FFF"
-          img="../../public/prevendita.jpg"
+          img="../../public/prevendite.jpg"
           alt=""
           persistent
         >

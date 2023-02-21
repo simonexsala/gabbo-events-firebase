@@ -10,7 +10,7 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Mamacita',
+  nome: 'Bebecita',
   data: '25 Febbraio',
   luogo: 'Rosalpina',
   link: 'https://maps.app.goo.gl/oL83XJCneepJep6D8',
