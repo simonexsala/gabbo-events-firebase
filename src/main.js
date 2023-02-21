@@ -32,7 +32,7 @@ app.config.globalProperties.$oldEvento = {
   nome: 'Il Carnevale della città',
   data: '18 Febbraio',
   luogo: 'Sanbapolis',
-  link: 'https://we.tl/t-2QpzIgSIe2',
+  link: 'https://drive.google.com/drive/folders/1xpwC_DWPUiUiiX7FxaI2n87yf9Cv_Okb',
 }
 
 app.use(router)
