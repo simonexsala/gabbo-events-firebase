@@ -63,7 +63,8 @@
       </template>
 
       <div class="a-card-body">
-        <div class="grid-row grid-cols-3 justify-items-stretch mb-4">
+        <!-- <div class="grid-row grid-cols-3 justify-items-stretch mb-4"> -->
+        <div class="grid-row grid-cols-2 justify-items-stretch mb-4">
           <ABtn
             v-model="opzione"
             value="drink"
@@ -74,16 +75,16 @@
           >
             Drink
           </ABtn>
-          <ABtn
-            v-model="opzione"
-            value="birra"
-            :variant="opzione === 'birra' ? 'fill' : 'light'"
-            @click="prezzo = this.$evento.birra; opzione = 'birra'"
-            :disabled="birraActive"
-            class="w-full"
-          >
-            Birra
-          </ABtn>
+          <!-- <ABtn -->
+          <!--   v-model="opzione" -->
+          <!--   value="birra" -->
+          <!--   :variant="opzione === 'birra' ? 'fill' : 'light'" -->
+          <!--   @click="prezzo = this.$evento.birra; opzione = 'birra'" -->
+          <!--   :disabled="birraActive" -->
+          <!--   class="w-full" -->
+          <!-- > -->
+          <!--   Birra -->
+          <!-- </ABtn> -->
           <ABtn
             v-model="opzione"
             value="tavolo"
@@ -211,6 +212,13 @@ export default {
       if (newVal === true) {
         this.hidePaypalContainer();
       }
+    },
+    opzione: function(newVal, oldVal) {
+      if (newVal === 'tavolo') {
+        this.numeri = [6, 7, 8, 9, 10, 11, 12]
+      } else {
+        this.numeri = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      }
     }
   },
   mounted: function () {
@@ -220,7 +228,7 @@ export default {
     document.body.appendChild(script);
 
     if (!this.drinkActive)
-      this.textConditions += "Consumazione " + this.$evento.drink + "€";
+      this.textConditions += "Ingresso con drink " + this.$evento.drink + "€";
     if (!this.birraActive)
       this.textConditions += ", birra illimitata " + this.$evento.birra + "€";
     if (!this.tavoloActive)
