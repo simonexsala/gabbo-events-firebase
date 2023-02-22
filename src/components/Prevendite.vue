@@ -220,7 +220,7 @@ export default {
     document.body.appendChild(script);
 
     if (!this.drinkActive)
-      this.textConditions += "Free drink " + this.$evento.drink + "€";
+      this.textConditions += "Consumazione " + this.$evento.drink + "€";
     if (!this.birraActive)
       this.textConditions += ", birra illimitata " + this.$evento.birra + "€";
     if (!this.tavoloActive)

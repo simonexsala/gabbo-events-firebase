@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="content dots">
+  <div class="content m-a max-w-2xl">
     <div class="grid-row grid-cols-2 pl-8 pr-8 justify-center flex items-center w-full">
       <img src="../public/logo.png" class="h-[10rem]" alt="logo" />
       <div>
