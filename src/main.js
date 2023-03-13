@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Bebecita',
-  data: '25 Febbraio',
+  nome: 'Fluo Party',
+  data: '11 Marzo',
   luogo: 'Rosalpina',
   link: 'https://maps.app.goo.gl/oL83XJCneepJep6D8',
 
@@ -29,10 +29,10 @@ app.config.globalProperties.$evento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Il Carnevale della città',
-  data: '18 Febbraio',
-  luogo: 'Sanbapolis',
-  link: 'https://drive.google.com/drive/folders/1xpwC_DWPUiUiiX7FxaI2n87yf9Cv_Okb',
+  nome: 'Fluo Party',
+  data: '11 Marzo',
+  luogo: 'Rosalpina',
+  link: 'https://drive.google.com/drive/folders/1XRc40uq5PcGSEDxArj88uLdHcPl4pEgf?usp=share_link',
 }
 
 app.use(router)
