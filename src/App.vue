@@ -37,7 +37,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Eventi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['9', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['11', 'text-l font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -50,7 +50,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Clienti', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['1000+', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['2000+', 'text-l font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -63,13 +63,13 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Luoghi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['5', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['6', 'text-l font-bold !text-high-emphasis']"
         />
       </div>
     </div>
 
     <p class="text-xs opacity-60 text-center pb-2">
-      Creato e mantenuto da Simone Sala
+      Creato e mantenuto da <a href="https://simonesala.xyz" class="underline">Simone Sala</a> 
     </p>
   </div>
 </template>

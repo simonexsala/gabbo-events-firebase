@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Fluo Party',
-  data: '11 Marzo',
+  nome: 'Memories',
+  data: 'Sabato 1 Aprile',
   luogo: 'Rosalpina',
   link: 'https://maps.app.goo.gl/oL83XJCneepJep6D8',
 
   birra: 18,
-  drink: 15,
+  drink: 14,
   tavolo: 25,
 
   birraOpzione: false,
