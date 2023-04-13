@@ -181,11 +181,12 @@ export default {
 
       textConditions: '',
 
-      opzione: 'drink',
+      opzione: '',
       ingressi: 1,
       prezzo: this.$evento.drink,
       totale: this.prezzo + this.prezzo / 100 * 4,
-      prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi ' + this.opzione,
+      prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi',
+      // prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi ' + this.opzione,
       dateMessage: 'Ci vediamo il ' + this.$evento.data,
       link: this.$evento.link,
 
