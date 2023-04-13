@@ -10,29 +10,29 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Memories',
-  data: 'Sabato 1 Aprile',
-  luogo: 'Rosalpina',
-  link: 'https://maps.app.goo.gl/oL83XJCneepJep6D8',
+  nome: 'Traffic Light Party',
+  data: 'Sabato 15 Aprile',
+  luogo: 'Club Show',
+  link: 'Via Altoadige 83, Trento',
 
   birra: 18,
-  drink: 14,
+  drink: 10,
   tavolo: 25,
 
   birraOpzione: false,
-  drinkOpzione: true,
-  tavoloOpzione: true,
+  drinkOpzione: false,
+  tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Fluo Party',
-  data: '11 Marzo',
+  nome: 'Memories',
+  data: 'Sabato 1 Aprile',
   luogo: 'Rosalpina',
-  link: 'https://drive.google.com/drive/folders/1XRc40uq5PcGSEDxArj88uLdHcPl4pEgf?usp=share_link',
+  link: 'https://maps.app.goo.gl/oL83XJCneepJep6D8'
 }
 
 app.use(router)
