@@ -118,6 +118,9 @@
         <p class="text-xs opacity-40 text-center">
           Commissione del 4% automaticamente inclusa 
         </p>
+        <p class="text-xs opacity-40 text-center">
+          I dati sono trattati ai sensi del regolamento UE 2016/679 
+        </p>
 
         <ADialog
           v-model="isPaypalShown"
