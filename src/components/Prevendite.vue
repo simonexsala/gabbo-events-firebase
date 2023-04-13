@@ -63,7 +63,7 @@
       </template>
 
       <div class="a-card-body">
-        <!-- <div class="grid-row grid-cols-3 justify-items-stretch mb-4"> -->
+        <!-- <div class="grid-row grid-cols-3 justify-items-stretch mb-4"> 
         <div class="grid-row grid-cols-2 justify-items-stretch mb-4">
           <ABtn
             v-model="opzione"
@@ -75,16 +75,6 @@
           >
             Drink
           </ABtn>
-          <!-- <ABtn -->
-          <!--   v-model="opzione" -->
-          <!--   value="birra" -->
-          <!--   :variant="opzione === 'birra' ? 'fill' : 'light'" -->
-          <!--   @click="prezzo = this.$evento.birra; opzione = 'birra'" -->
-          <!--   :disabled="birraActive" -->
-          <!--   class="w-full" -->
-          <!-- > -->
-          <!--   Birra -->
-          <!-- </ABtn> -->
           <ABtn
             v-model="opzione"
             value="tavolo"
@@ -96,6 +86,7 @@
             Tavolo
           </ABtn>
         </div>
+        -->
 
         <div class="flex">
           <div class="w-full mb-4">
