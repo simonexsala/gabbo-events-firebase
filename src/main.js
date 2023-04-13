@@ -12,8 +12,8 @@ const app = createApp(App)
 app.config.globalProperties.$evento = {
   nome: 'Traffic Light Party',
   data: 'Sabato 15 Aprile',
-  luogo: 'Club Show',
-  link: 'Via Altoadige 83, Trento',
+  luogo: 'Club Show, Via Alto Adige 83, Trento',
+  link: '',
 
   birra: 18,
   drink: 10,
