@@ -16,7 +16,7 @@ app.config.globalProperties.$evento = {
   link: '',
 
   birra: 18,
-  drink: 10,
+  drink: 11.06,
   tavolo: 25,
 
   birraOpzione: false,
