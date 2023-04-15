@@ -249,7 +249,7 @@ export default {
         style: {
           shape: 'pill',
           color: 'blue',
-          layout: 'vertical',
+          layout: 'horizontal',
           label: 'paypal',
         },
 
