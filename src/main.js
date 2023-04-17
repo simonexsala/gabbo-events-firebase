@@ -12,7 +12,7 @@ const app = createApp(App)
 app.config.globalProperties.$evento = {
   nome: 'Traffic Light Party',
   data: 'Sabato 15 Aprile',
-  luogo: 'Club Show, Via Alto Adige 83, Trento',
+  luogo: 'Club Show',
   link: '',
 
   birra: 18,
@@ -29,10 +29,10 @@ app.config.globalProperties.$evento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Memories',
-  data: 'Sabato 1 Aprile',
-  luogo: 'Rosalpina',
-  link: 'https://maps.app.goo.gl/oL83XJCneepJep6D8'
+  nome: 'Traffic Light Party',
+  data: 'Sabato 15 Aprile',
+  luogo: 'Club Show',
+  link: 'https://drive.google.com/drive/folders/1Z9wWx4VbhyAe0cvoRncU8t9TJ40qVQol?usp=sharing',
 }
 
 app.use(router)
