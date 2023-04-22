@@ -16,7 +16,7 @@
             :href="link"
             class="underline text-sm"
           >
-            link
+            Google Drive link
           </a>
         </div>
       </template>
