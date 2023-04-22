@@ -15,16 +15,18 @@ app.config.globalProperties.$evento = {
   luogo: 'Club Show',
   link: '',
 
-  birra: 18,
-  drink: 11.06,
-  tavolo: 25,
+  ingressoPrezzo: 10,
+  drinkPrezzo: 13,
+  birraPrezzo: 18,
+  tavoloPrezzo: 25,
 
-  birraOpzione: false,
-  drinkOpzione: false,
-  tavoloOpzione: false,
+  ingresso: true,
+  drink: false,
+  birra: false,
+  tavolo: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 
