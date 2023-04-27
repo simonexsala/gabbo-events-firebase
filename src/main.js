@@ -10,20 +10,19 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Traffic Light Party',
-  data: 'Sabato 15 Aprile',
+  nome: 'White Night',
+  data: 'Sabato 6 Maggio',
   luogo: 'Club Show',
+  indirizzo: 'Via Alto Adige 83, Trento',
   link: '',
 
-  ingressoPrezzo: 10,
-  drinkPrezzo: 13,
-  birraPrezzo: 18,
-  tavoloPrezzo: 25,
+  drink: 10.06,
+  birra: 18,
+  tavolo: 25,
 
-  ingresso: true,
-  drink: false,
-  birra: false,
-  tavolo: false,
+  birraOpzione: false,
+  drinkOpzione: false,
+  tavoloOpzione: false,
   
   navetteAttive: false,
   soldOut: false,
