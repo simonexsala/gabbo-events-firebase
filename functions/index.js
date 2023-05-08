@@ -1,9 +1,12 @@
-const functions = require('firebase-functions');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
+
+const functions = require('firebase-functions');
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -11,44 +14,53 @@ app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
-    user: 'gabboevents@gmail.com',
-    pass: 'abc'
-  }
+    user: 'gabbo.dorigoni@gmail.com',
+    pass: 'xdqrgbbdlvcibugr',
+  },
 });
 
 app.post('/', (req, res) => {
-  const headers = req.headers;
   const body = req.body;
+  console.log(JSON.stringify(body));
 
-  // Verify PayPal signature
-  // add to .env.local
-  const PAYPAL_WEBHOOK_ID = '<your_paypal_webhook_id>';
-  const PAYPAL_API_SECRET = '<your_paypal_api_secret>';
+  console.log(body.event_type);
 
-  const signature = headers['paypal-signature'];
-  const verificationData = JSON.stringify(body);
-  const expectedSignature = crypto.createHmac('sha256', PAYPAL_API_SECRET)
-                                  .update(verificationData)
-                                  .digest('hex');
+  if (body.event_type === 'CHECKOUT.ORDER.APPROVED') {
+    // const amount = body.purchase_units.amount.value;
+    const amount = 20;
+    // const description = body.purchase_units.description;
+    let numero = 1;
+    let tipo = 'ingresso';
 
-  if (signature !== expectedSignature) {
-    console.error('PayPal signature verification failed.');
-    return res.status(401).send('Unauthorized request');
-  }
+    if (amount > 19) {
+      numero = 'XXX';
+      tipo = 'XXX';
+    }
 
-  if (body.event_type === 'PAYMENT.SALE.COMPLETED') {
-    const paymentID = body.resource.id;
-    const amount = body.resource.amount.total;
-    const email = body.resource.payer.email_address;
+    // const email = body.resource.payer.email_address;
+    const email = "simonexsala@gmail.com"
+    const firstName = body.resource.payer.name.given_name;
+    const lastName = body.resource.payer.name.surname;
 
-    console.log(`Payment of ${amount} completed with ID: ${paymentID}`);
+    const db = getFirestore();
+    db.collection('evento').add({
+      nome: firstName,
+      cognome: lastName,
+      email: email,
+      numero: numero,
+      tipo: tipo,
+      totale: amount,
+    });
 
     const mailOptions = {
       from: 'gabboevents@gmail.com',
       to: email,
       subject: 'Prevendita Gabbo Events',
-      text: `Your payment of $${amount} has been received and processed with ID: ${paymentID}. Thank you!`
+      text: `Ciao ${firstName}, abbiamo ricevuto il tuo pagamento di €${amount} per`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -61,12 +73,9 @@ app.post('/', (req, res) => {
       }
     });
   } else {
-    // Handle other events, such as payment refunds or disputes
     console.log(`Received event of type: ${body.event_type}`);
-
     return res.status(200).send('Event processed successfully');
   }
 });
-
 
 exports.webhook = functions.https.onRequest(app);

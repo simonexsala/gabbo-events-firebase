@@ -37,7 +37,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Eventi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['12', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['14', 'text-l font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -50,7 +50,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Clienti', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['3000+', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['4000+', 'text-l font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -63,7 +63,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Luoghi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['7', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['8', 'text-l font-bold !text-high-emphasis']"
         />
       </div>
     </div>

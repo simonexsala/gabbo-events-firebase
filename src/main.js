@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'White Night',
-  data: 'Sabato 6 Maggio',
-  luogo: 'Club Show',
-  indirizzo: 'Via Alto Adige 83, Trento',
+  nome: 'Il Sabato alla Spiaggia',
+  data: 'Sabato 13 Maggio',
+  luogo: 'Bar alla Spiaggia',
+  indirizzo: 'Via dei Silari 3, Baselga di Piné',
   link: '',
 
-  drink: 10.06,
+  drink: 11,
   birra: 18,
   tavolo: 25,
 
@@ -26,14 +26,14 @@ app.config.globalProperties.$evento = {
   
   navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: true,
+  prevenditeOnline: false,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Traffic Light Party',
-  data: 'Sabato 15 Aprile',
+  nome: 'White Night',
+  data: 'Sabato 6 Maggio',
   luogo: 'Club Show',
-  link: 'https://drive.google.com/drive/folders/1Z9wWx4VbhyAe0cvoRncU8t9TJ40qVQol?usp=sharing',
+  link: 'https://drive.google.com/drive/folders/1XrdJqaoRAcLeG6XxTU9on05-L2b5HeMW?usp=sharing',
 }
 
 app.use(router)

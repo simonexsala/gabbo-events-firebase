@@ -264,10 +264,10 @@ export default {
         },
 
         onApprove: (data, actions) => {
+          this.isPaypalPaid = true;
+          this.isPaypalShown = false;
           return actions.order.capture().then(function (orderData) {
             const transaction = orderData.purchase_units[0].payments.captures[0];
-            this.isPaypalPaid = true;
-            this.isPaypalShown = false;
           });
         }
       }).render('#paypal-container');
