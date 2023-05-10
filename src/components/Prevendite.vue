@@ -135,7 +135,7 @@
         >
           <div class="a-card-body">
             <div v-if="isPaypalLoading" class="mb-7 flex justify-center items-center">
-              <div class="spinner inline-block w-24 h-24" role="status" />
+              <div class="spinner inline-block w-16 h-16" role="status" />
             </div>
             <div id="paypal-container" />
             <ABtn
