@@ -47,16 +47,16 @@
       color="var(--card)"
     >
       <template #title>
-        <div class="!text-high-emphasis flex justify-between items-center">
+        <div class="!text-high-emphasis text-3xl flex justify-between items-center">
           <span>{{ this.$evento.nome }}</span>
        </div>
       </template>
       <template #subtitle>
         <div class="flex justify-between items-center">
-          <span>{{ this.$evento.indirizzo }}</span>
+          <span>{{ this.$evento.data }} al {{ this.$evento.luogo }}</span>
         </div>
         <div class="flex justify-between items-center">
-          <span>{{ this.$evento.data }}, {{ this.$evento.luogo }}</span>
+          <span>{{ this.$evento.indirizzo }}</span>
         </div>
       </template>
 
@@ -86,6 +86,9 @@
         </div>
         -->
 
+        <p class="mb-2 -mt-2">
+          Ingresso con shot incluso
+        </p>
         <div class="flex">
           <div class="w-full mb-4">
             <ASelect
@@ -100,7 +103,7 @@
           <div class="flex-inline items-center grid-row grid-cols-2 w-full">
             <div class="items-center text-center bg-primary bg-opacity-50 p-2 w-full rounded-lg">
               <span >
-                {{ totale = ((ingressi * prezzo) +  (ingressi * prezzo) / 100 * 4).toFixed(1) }}0€
+                {{ totale = ((ingressi * prezzo)).toFixed(1) }}0€
               </span>
             </div>
             <ABtn
@@ -114,7 +117,7 @@
           </div> 
         </div>
         <p class="text-xs opacity-40 text-center">
-          Commissione del 4% automaticamente inclusa 
+          Commissione automaticamente inclusa 
         </p>
         <p class="text-xs opacity-40 text-center">
           I dati sono trattati ai sensi del regolamento UE 2016/679 

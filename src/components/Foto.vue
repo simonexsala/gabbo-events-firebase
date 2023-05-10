@@ -5,7 +5,7 @@
       color="var(--card)"
     >
       <img
-        src="../../public/evento.jpg"
+        src="../../public/foto.jpg"
         alt=""
       >
       <template #title>
