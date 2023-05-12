@@ -63,9 +63,6 @@ async function sendEmailWithQRCode(id, email, name, amount) {
       height: 400,
       data: id, 
       image: "https://drive.google.com/file/d/1RI57_z0ouydGZRDEwdLkwuhM7XtusDBK/view?usp=sharing",
-      qrOptions: {
-        errorCorrectionLevel: 'M', 
-      },
       imageOptions: {
         margin: 2,
       },
