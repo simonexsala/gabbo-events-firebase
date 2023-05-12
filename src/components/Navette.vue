@@ -4,7 +4,7 @@
       v-model="navetteNonAttive"
       title="Navette non disponibili!"
       variant="light"
-      color="var(--background)"
+      color="#FFF"
       text="Ci dispiace, le navette per questo evento non sono disponibili."
       persistent
     >
@@ -87,7 +87,7 @@
           v-model="dialogPrenotazione"
           title="Conferma prenotazione"
           variant="light"
-          color="var(--background)"
+          color="#FFF"
           :subtitle="[this.prompt]"
           persistent
         >

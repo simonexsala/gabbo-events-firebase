@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Random Party',
-  data: 'Venerdi 19 Maggio',
+  nome: 'Casual Party',
+  data: 'Venerdì 19 Maggio',
   luogo: 'Club Show',
   indirizzo: 'Via Alto Adige 83, Trento',
   link: '',

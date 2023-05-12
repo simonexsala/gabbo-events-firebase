@@ -5,7 +5,7 @@
       v-model="soldOut"
       title="Prevendite sold out!"
       variant="light"
-      color="var(--background)"
+      color="#FFF"
       text="Ci dispiace, non sono più disponibili prevendite per questo evento."
       persistent
     >
@@ -24,7 +24,7 @@
       v-model="prevenditeOnline"
       title="Prevendite non disponibili!"
       variant="light"
-      color="var(--background)"
+      color="#FFF"
       text="Ci dispiace, le prevendite per questo evento non sono disponibili online."
       persistent
     >
@@ -110,7 +110,7 @@
               variant="light"
               icon="i-bx-heart"
               class="w-full"
-              @click="isPaypalShown = true; prompt = totale + '0€, per ' + ingressi + ' ingressi ' + opzione"
+              @click="isPaypalShown = true; prompt = totale + '0€ per ' + ingressi + ' ' + opzione"
             >
               Acquista
             </ABtn>
@@ -135,7 +135,7 @@
         >
           <div class="a-card-body">
             <div v-if="isPaypalLoading" class="mb-7 flex justify-center items-center">
-              <div class="spinner inline-block w-16 h-16" role="status" />
+              <div class="spinner inline-block w-8 h-8" role="status" />
             </div>
             <div id="paypal-container" />
             <ABtn
@@ -152,9 +152,9 @@
           v-model="isPaypalPaid"
           title="Grazie per aver acquistato"
           :subtitle="[this.dateMessage]"
-          text="Ricorda di controllare la mail per ulteriori informazioni."
+          text="Ricorda di controllare la mail per ulteriori informazioni. L'acquisto è andato a buon fine se hai ricevuto la notifica di pagamento da parte di Paypal."
           variant="light"
-          color="var(--background)"
+          color="#FFF"
           persistent
         >
           <div class="a-card-body">
@@ -185,11 +185,11 @@ export default {
 
       textConditions: '',
 
-      opzione: '',
+      opzione: 'ingresso',
       ingressi: 1,
       prezzo: this.$evento.drink,
       totale: this.prezzo + this.prezzo / 100 * 4,
-      prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi',
+      prompt: this.totale + '0€ per ' + this.ingressi + ' ' + this.opzione,
       // prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi ' + this.opzione,
       dateMessage: 'Ci vediamo il ' + this.$evento.data,
       link: this.$evento.link,
@@ -219,6 +219,10 @@ export default {
   },
   mounted: function () {
     const script = document.createElement("script");
+    // Test
+    // script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AfCfb7SWLyUbf0LwTzeqPyGVyMrlp_lrCryYrzYb_5AvMOzsXejI2npeIpFEkC4WhGGm1zm7XY1VAEtV&disable-funding=card";
+
+    // Production
     script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AYt8UxPRZS1k32KYmPOV142g7_hmJbEFpNmooZ73Ts79E6PWT4dNM94czFJzE-EJWF2iV3Ue1yaIRkKP&disable-funding=card";
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
@@ -257,7 +261,7 @@ export default {
         createOrder: (data, actions) => {
           return actions.order.create({
             purchase_units: [{
-              description: "Gabbo Events Prevendita, " + this.ingressi + "x " + this.opzione,
+              description: "Gabbo Events Prevendita. " + this.ingressi + " " + this.opzione,
               amount: {
                 currency_code: "EUR",
                 value: this.totale,
@@ -281,7 +285,7 @@ export default {
 
 <style scoped>
 .spinner {
-  border: 5px solid #000;
+  border: 3px solid #000;
   border-bottom-color: transparent;
   border-radius: 50%;
   animation: rotation 1s linear infinite;

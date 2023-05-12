@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
+const qrcode = require('qr-code-styling');
 const nodemailer = require('nodemailer');
-const crypto = require('crypto');
 
 const functions = require('firebase-functions');
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+const admin = require('firebase-admin');
+admin.initializeApp();
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -27,43 +28,69 @@ app.post('/', (req, res) => {
   const body = req.body;
   console.log(JSON.stringify(body));
 
-  console.log(body.event_type);
-
   if (body.event_type === 'CHECKOUT.ORDER.APPROVED') {
-    // const amount = body.purchase_units.amount.value;
-    const amount = 20;
-    // const description = body.purchase_units.description;
-    let numero = 1;
-    let tipo = 'ingresso';
+    const db = admin.firestore();
+    const amount = body.resource.purchase_units[0].amount.value;
+    const description = body.resource.purchase_units[0].description;
+    const descriptionParts = description.split(' ');
+    const type = descriptionParts[descriptionParts.length - 1];
+    const quantity = parseInt(descriptionParts[descriptionParts.length - 2]);
+    
+    const email = body.resource.payer.email_address;
+    const name = body.resource.payer.name;
+    const time = body.resource.update_time;
 
-    if (amount > 19) {
-      numero = 'XXX';
-      tipo = 'XXX';
-    }
-
-    // const email = body.resource.payer.email_address;
-    const email = "simonexsala@gmail.com"
-    const firstName = body.resource.payer.name.given_name;
-    const lastName = body.resource.payer.name.surname;
-
-    const db = getFirestore();
-    db.collection('evento').add({
-      nome: firstName,
-      cognome: lastName,
+    db.collection('evento').doc(body.id).set({
+      data: time,
       email: email,
-      numero: numero,
-      tipo: tipo,
-      totale: amount,
+      nome: name,
+      numero: quantity,
+      tipo: type,
+      totale: amount
     });
 
+    sendEmailWithQRCode(body.id, email, name.given_name, amount);
+  } else {
+    console.log(`Received event of type: ${body.event_type}`);
+    return res.status(200).send('Event processed successfully');
+  }
+});
+
+async function sendEmailWithQRCode(id, email, name, amount) {
+  try {
+    const qrCode = new qrcode({
+      width: 400,
+      height: 400,
+      data: id, 
+      image: "https://drive.google.com/file/d/1RI57_z0ouydGZRDEwdLkwuhM7XtusDBK/view?usp=sharing",
+      qrOptions: {
+        errorCorrectionLevel: 'M', 
+      },
+      imageOptions: {
+        margin: 2,
+      },
+      dotsOptions: {
+          color: "#E4256E",
+          type: "extra-rounded"
+      },
+    });
+
+    const imageBuffer = await qrCode.toBuffer();
     const mailOptions = {
-      from: 'gabboevents@gmail.com',
+      from: 'gabbo.dorigoni@gmail.com',
       to: email,
       subject: 'Prevendita Gabbo Events',
-      text: `Ciao ${firstName}, abbiamo ricevuto il tuo pagamento di €${amount} per`
+      text: `Ciao ${name}, abbiamo ricevuto il tuo pagamento di €${amount}.`,
+      attachments: [
+        {
+          filename: 'qrcode.png',
+          content: imageBuffer,
+        },
+      ],
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
+      cleanup();
       if (error) {
         console.log(error);
         return res.status(500).send('Failed to send email');
@@ -72,10 +99,9 @@ app.post('/', (req, res) => {
         return res.status(200).send('Payment processed successfully');
       }
     });
-  } else {
-    console.log(`Received event of type: ${body.event_type}`);
-    return res.status(200).send('Event processed successfully');
+  } catch(error) {
+    console.error('Error sending email:', error);
   }
-});
+}
 
 exports.webhook = functions.https.onRequest(app);
