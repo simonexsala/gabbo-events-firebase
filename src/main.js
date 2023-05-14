@@ -29,6 +29,12 @@ app.config.globalProperties.$evento = {
   prevenditeOnline: true,
 }
 
+app.config.globalProperties.$nextEvento = {
+  nome: 'Hawaiian Night',
+  data: 'Sabato 20 Maggio',
+  luogo: 'Rosalpina',
+}
+
 app.config.globalProperties.$oldEvento = {
   nome: 'White Night',
   data: 'Sabato 6 Maggio',

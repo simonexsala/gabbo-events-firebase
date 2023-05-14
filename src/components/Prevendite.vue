@@ -135,7 +135,7 @@
         >
           <div class="a-card-body">
             <div v-if="isPaypalLoading" class="mb-7 flex justify-center items-center">
-              <div class="spinner inline-block w-8 h-8" role="status" />
+              <div class="spinner inline-block w-10 h-10" role="status" />
             </div>
             <div id="paypal-container" />
             <ABtn
@@ -152,7 +152,7 @@
           v-model="isPaypalPaid"
           title="Grazie per aver acquistato"
           :subtitle="[this.dateMessage]"
-          text="Ricorda di controllare la mail per ulteriori informazioni. L'acquisto è andato a buon fine se hai ricevuto la notifica di pagamento da parte di Paypal."
+          text="Controlla la mail per ulteriori informazioni. L'acquisto è andato a buon fine se hai ricevuto la notifica di pagamento da parte di Paypal."
           variant="light"
           color="#FFF"
           persistent
@@ -191,7 +191,7 @@ export default {
       totale: this.prezzo + this.prezzo / 100 * 4,
       prompt: this.totale + '0€ per ' + this.ingressi + ' ' + this.opzione,
       // prompt: this.totale + '0€, per ' + this.ingressi + ' ingressi ' + this.opzione,
-      dateMessage: 'Ci vediamo il ' + this.$evento.data,
+      dateMessage: 'Ci vediamo ' + this.$evento.data,
       link: this.$evento.link,
 
       soldOut: this.$evento.soldOut,
