@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- inline and minify -->
+<html>
+<head>
+  <title>Prevendita</title>
+  <style>
+    .container {
+      margin: 0.2rem;
+      padding: 1.5rem;
+      border-radius: 2rem;
+      background-color: #11111b;
+    }
+
+    .smaller-container {
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem;
+      border-radius: 2rem;
+      background-color: #e5686f;
+      display: inline-block;
+    }
+    
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .image {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+      max-height: 150px; 
+    }
+    
+    .paragraph {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://raw.githubusercontent.com/simonexsala/gabbo-events-firebase/master/public/logo.png" alt="Gabbo Events" class="image">
+    <h1 class="title">Prevendita<br />Gabbo Events</h1>
+    <p class="paragraph" style="font-size: 1.5rem;">
+      Ciao <b>{{nome}}</b> 👋
+    </p>
+    <p class="paragraph">
+      Abbiamo ricevuto il tuo pagamento per <b>{{numero}} ingressi</b>. 
+      Il codice che trovi qua sotto e in allegato è da esibire 
+      all'ingresso. È unico e valido per tutti gli ingressi acquistati.
+    </p>
+    <p class="paragraph">
+      Ci vediamo presto!
+    </p>
+    <p class="paragraph">
+      <i>Il team Gabbo Events</i>
+    </p>
+    <div style="display: flex;">
+      <div class="smaller-container">
+        <img src="cid:qrcode" alt="QR CODE">
+        <p class="paragraph" style="font-size: 0.8rem; margin-bottom: 0; margin-top 1rem;">
+          Prevendita valida per {{numero}} ingressi
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

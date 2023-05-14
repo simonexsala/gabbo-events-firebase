@@ -3,7 +3,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const QRCode = require('qrcode');
-const nodemailer = require('nodemailer');
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
@@ -13,42 +12,58 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(bodyParser.json());
 
-app.post('/', (req, res) => {
-  const body = req.body;
-  // console.log(JSON.stringify(body));
+app.post('/', async (req, res) => {
+  try {
+    const body = req.body;
+    // console.log(JSON.stringify(body));
 
-  if (body.event_type === 'CHECKOUT.ORDER.APPROVED') {
-    const db = admin.firestore();
-    const amount = body.resource.purchase_units[0].amount.value;
-    const description = body.resource.purchase_units[0].description;
-    const descriptionParts = description.split(' ');
-    const type = descriptionParts[descriptionParts.length - 1];
-    const quantity = parseInt(descriptionParts[descriptionParts.length - 2]);
-    
-    const email = "simonexsala@gmail.com";
-    // const email = body.resource.payer.email_address;
-    const name = body.resource.payer.name;
-    const time = body.resource.update_time;
+    if (body.event_type === 'CHECKOUT.ORDER.APPROVED') {
+      const db = admin.firestore();
 
-    db.collection('evento').doc(body.id).set({
-      data: time,
-      email: email,
-      email_sent: false,
-      nome: name,
-      numero: quantity,
-      tipo: type,
-      totale: amount
-    });
+      const email = "simonexsala@gmail.com";
+      // const email = body.resource.payer.email_address;
+      const name = body.resource.payer.name;
+      const time = body.resource.update_time;
+      const amount = body.resource.purchase_units[0].amount.value;
+      const [quantity, type] = body.resource.purchase_units[0].description.split(' ').slice(-2);
+      const capitalizedType = type.charAt(0).toUpperCase();
+      const qrCodeBody = `${body.id}-I${quantity}-T${capitalizedType}`;
 
-    sendEmailWithQRCode(body.id, email, name.given_name, amount, quantity);
-  } else {
-    console.log(`Received event of type: ${body.event_type}`);
+      const qrCode = await generateQRCode(qrCodeBody);
+
+      await db.collection('evento').doc(body.id).set({
+        code: qrCode,
+        data: time,
+        email: email,
+        nome: name,
+        numero: quantity,
+        tipo: type,
+        totale: amount,
+      });
+
+      await db.collection('mail').doc(body.id).set({
+        to: email,
+        template: {
+          name: "prevendita",
+          data: {
+            nome: name.given_name,
+            numero: quantity,
+            path: qrCode,
+          },
+        },
+      });
+    } else {
+      console.log(`Received event of type: ${body.event_type}`);
+    }
+
+    return res.status(200).send('Event processed successfully.');
+  } catch (error) {
+    console.error('Error processing event:', error);
+    return res.status(500).send('Error processing event.');
   }
-
-  return res.status(200).send('Event processed successfully');
 });
 
-async function sendEmailWithQRCode(id, email, name, amount, quantity) {
+async function generateQRCode(qrCodeBody) {
   var opts = {
     errorCorrectionLevel: 'H',
     type: 'image/png',
@@ -58,43 +73,8 @@ async function sendEmailWithQRCode(id, email, name, amount, quantity) {
     height: 500,
   }
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: 'gabbo.dorigoni@gmail.com',
-      pass: 'xdqrgbbdlvcibugr',
-    },
-    tls: {
-      ciphers : 'SSLv3',
-    },
-  });
-
-  const url = await QRCode.toDataURL(id, opts);
-  const mailOptions = {
-    from: 'gabbo.dorigoni@gmail.com',
-    to: email,
-    subject: 'Prevendita Gabbo Events',
-    text: `Ciao ${name}, abbiamo ricevuto il tuo pagamento di €${amount} per ${quantity} ingressi. Il QR code che hai ricevuto allegato a questo messaggio è valido per ${quantity} ingressi.`,
-    attachments: [
-      {
-        path: url,
-      },
-    ],
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      return res.status(500).send('Failed to send email');
-    } else {
-      console.log(`Email sent: ${info.response}`);
-      admin.firestore().collection("evento").doc(id).update({ email_sent: true });
-      return res.status(200).send('Payment processed successfully');
-    }
-  });
+  const url = await QRCode.toDataURL(qrCodeBody, opts);
+  return url;
 }
 
 exports.webhook = functions.https.onRequest(app);
