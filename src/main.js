@@ -16,7 +16,7 @@ app.config.globalProperties.$evento = {
   indirizzo: 'Via Alto Adige 83, Trento',
   link: '',
 
-  drink: 1.50,
+  drink: 12.50,
   birra: 18,
   tavolo: 25,
 
@@ -36,10 +36,10 @@ app.config.globalProperties.$nextEvento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'White Night',
-  data: 'Sabato 6 Maggio',
-  luogo: 'Club Show',
-  link: 'https://drive.google.com/drive/folders/1XrdJqaoRAcLeG6XxTU9on05-L2b5HeMW?usp=sharing',
+  nome: 'Il sabato della Spiaggia',
+  data: 'Sabato 13 Maggio',
+  luogo: 'Bar Spiaggia',
+  link: 'https://drive.google.com/drive/u/0/mobile/folders/1-dYqkHxPQnQBVoG_VwmCgepjAhrOHBRm?usp=sharing_eil_se_dm&ts=646217c4&huid=VWopB8hcLbpwTdtu0d_awA',
 }
 
 app.use(router)

@@ -220,10 +220,10 @@ export default {
   mounted: function () {
     const script = document.createElement("script");
     // Test
-    script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AfCfb7SWLyUbf0LwTzeqPyGVyMrlp_lrCryYrzYb_5AvMOzsXejI2npeIpFEkC4WhGGm1zm7XY1VAEtV&disable-funding=card";
+    // script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AfCfb7SWLyUbf0LwTzeqPyGVyMrlp_lrCryYrzYb_5AvMOzsXejI2npeIpFEkC4WhGGm1zm7XY1VAEtV&disable-funding=card";
 
     // Production
-    // script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AYt8UxPRZS1k32KYmPOV142g7_hmJbEFpNmooZ73Ts79E6PWT4dNM94czFJzE-EJWF2iV3Ue1yaIRkKP&disable-funding=card";
+    script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AYt8UxPRZS1k32KYmPOV142g7_hmJbEFpNmooZ73Ts79E6PWT4dNM94czFJzE-EJWF2iV3Ue1yaIRkKP&disable-funding=card";
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
 
