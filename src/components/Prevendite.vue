@@ -52,10 +52,10 @@
        </div>
       </template>
       <template #subtitle>
-        <div class="flex justify-between items-center">
-          <span>{{ this.$evento.data }} al {{ this.$evento.luogo }}</span>
+        <div class="flex text-xl justify-between items-center">
+          <span>{{ this.$evento.data }} <i>{{ this.$evento.luogo }}</i></span>
         </div>
-        <div class="flex justify-between items-center">
+        <div class="opacity-40 flex text-sm justify-between items-center">
           <span>{{ this.$evento.indirizzo }}</span>
         </div>
       </template>
@@ -86,8 +86,8 @@
         </div>
         -->
 
-        <p class="mb-2 -mt-2">
-          Ingresso con shot incluso
+        <p class="!text-high-emphasis mb-2 -mt-2">
+          Ingresso con free drink
         </p>
         <div class="flex">
           <div class="w-full mb-4">

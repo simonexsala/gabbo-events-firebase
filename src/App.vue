@@ -37,7 +37,20 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Eventi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['14', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['14', 'text-md font-bold !text-high-emphasis']"
+        />
+      </div>
+
+      <div class="flex gap-x-2 items-center">
+        <AAvatar
+          icon="i-bx-navigation"
+          color="danger"
+          class="rounded-9 text-[1rem]"
+        />
+        <ATypography
+          class="!children:leading-tight"
+          :title="['Location', 'text-xs !text-medium-emphasis font-normal']"
+          :subtitle="['8', 'text-md font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -50,26 +63,13 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Clienti', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['4000+', 'text-l font-bold !text-high-emphasis']"
-        />
-      </div>
-
-      <div class="flex gap-x-2 items-center">
-        <AAvatar
-          icon="i-bx-navigation"
-          color="danger"
-          class="rounded-9 text-[1rem]"
-        />
-        <ATypography
-          class="!children:leading-tight"
-          :title="['Luoghi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['8', 'text-l font-bold !text-high-emphasis']"
+          :subtitle="['4000+', 'text-md font-bold !text-high-emphasis']"
         />
       </div>
     </div>
 
     <p class="text-xs opacity-60 text-center pb-2">
-      Creato e mantenuto da <a href="https://simonesala.xyz" class="underline">Simone Sala</a> 
+      Creato e mantenuto da <a class="underline">Simone Sala</a> 
     </p>
   </div>
 </template>

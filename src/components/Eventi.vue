@@ -5,7 +5,7 @@
       color="var(--card)"
     >
       <img
-        src="../../public/eventi.jpg"
+        src="../../public/eventi2.jpg"
         alt=""
       >
       <template #title>
@@ -26,7 +26,7 @@
       class="mt-4"
     >
       <img
-        src="../../public/eventi2.jpg"
+        src="../../public/eventi.jpg"
         alt=""
       >
       <template #title>
