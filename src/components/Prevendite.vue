@@ -87,7 +87,7 @@
         -->
 
         <p class="!text-high-emphasis mb-2 -mt-2">
-          Ingresso
+          Ingresso con priorità
         </p>
         <div class="flex">
           <div class="w-full mb-4">
