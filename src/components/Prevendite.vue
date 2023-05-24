@@ -53,7 +53,7 @@
       </template>
       <template #subtitle>
         <div class="flex text-xl justify-between items-center">
-          <span>{{ this.$evento.data }} <i>{{ this.$evento.luogo }}</i></span>
+          <span>{{ this.$evento.data }} &mdash; <i>{{ this.$evento.luogo }}</i></span>
         </div>
         <div class="opacity-40 flex text-sm justify-between items-center">
           <span>{{ this.$evento.indirizzo }}</span>
@@ -87,7 +87,7 @@
         -->
 
         <p class="!text-high-emphasis mb-2 -mt-2">
-          Ingresso con free drink
+          Ingresso
         </p>
         <div class="flex">
           <div class="w-full mb-4">
@@ -102,7 +102,7 @@
         <div class="mb-2"> 
           <div class="flex-inline items-center grid-row grid-cols-2 w-full">
             <div class="items-center text-center bg-primary bg-opacity-50 p-2 w-full rounded-lg">
-              <span >
+              <span class="!text-high-emphasis">
                 {{ totale = ((ingressi * prezzo)).toFixed(1) }}0€
               </span>
             </div>
@@ -223,7 +223,10 @@ export default {
     // script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AfCfb7SWLyUbf0LwTzeqPyGVyMrlp_lrCryYrzYb_5AvMOzsXejI2npeIpFEkC4WhGGm1zm7XY1VAEtV&disable-funding=card";
 
     // Production
-    script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AYt8UxPRZS1k32KYmPOV142g7_hmJbEFpNmooZ73Ts79E6PWT4dNM94czFJzE-EJWF2iV3Ue1yaIRkKP&disable-funding=card";
+    script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AbYSdeaxvCLLplFYtmmfwLOGYf_k_INjhq-WI1Q1BUcIW-Uu0ZowwYfA5D5sA1J2VT0Sj1A5ZhLlhKBz&disable-funding=card";
+    
+    // Old Gabbo
+    // script.src = "https://www.paypal.com/sdk/js?currency=EUR&client-id=AYt8UxPRZS1k32KYmPOV142g7_hmJbEFpNmooZ73Ts79E6PWT4dNM94czFJzE-EJWF2iV3Ue1yaIRkKP&disable-funding=card";
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
 

@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Hawaiian Night',
-  data: 'Sabato 20 Maggio',
-  luogo: 'Discoteca Rosalpina',
-  indirizzo: 'Via Pianizza 27, Trento',
+  nome: 'Traffic Light Night',
+  data: 'Sabato 27 Maggio',
+  luogo: 'Club Show',
+  indirizzo: 'Via Alto Adige 83, Trento',
   link: '',
 
-  drink: 14,
+  drink: 1,
   birra: 18,
   tavolo: 25,
 
@@ -27,12 +27,6 @@ app.config.globalProperties.$evento = {
   navetteAttive: false,
   soldOut: false,
   prevenditeOnline: true,
-}
-
-app.config.globalProperties.$nextEvento = {
-  nome: 'Casual Party',
-  data: 'Venerdì 19 Maggio',
-  luogo: 'Club Show',
 }
 
 app.config.globalProperties.$oldEvento = {
