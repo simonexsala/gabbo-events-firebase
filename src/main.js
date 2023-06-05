@@ -31,9 +31,9 @@ app.config.globalProperties.$evento = {
 
 app.config.globalProperties.$oldEvento = {
   nome: 'Il sabato della Spiaggia',
-  data: 'Sabato 13 Maggio',
+  data: 'Sabato 3 Giugno',
   luogo: 'Bar Spiaggia',
-  link: 'https://drive.google.com/drive/u/0/mobile/folders/1-dYqkHxPQnQBVoG_VwmCgepjAhrOHBRm?usp=sharing_eil_se_dm&ts=646217c4&huid=VWopB8hcLbpwTdtu0d_awA',
+  link: 'https://drive.google.com/drive/folders/1TLGSH88D7norgihV_T-gs1QmTXs9mux2?usp=sharing',
 }
 
 app.use(router)
