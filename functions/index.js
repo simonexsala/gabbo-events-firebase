@@ -7,6 +7,9 @@ const QRCode = require('qrcode');
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
+admin.firestore().settings({
+  ignoreUndefinedProperties: true,
+});
 
 const app = express();
 app.use(cors({ origin: true }));
