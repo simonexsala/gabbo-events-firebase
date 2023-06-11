@@ -37,7 +37,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Eventi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['14', 'text-md font-bold !text-high-emphasis']"
+          :subtitle="['16', 'text-md font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -50,7 +50,7 @@
         <ATypography
           class="!children:leading-tight"
           :title="['Location', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['8', 'text-md font-bold !text-high-emphasis']"
+          :subtitle="['10', 'text-md font-bold !text-high-emphasis']"
         />
       </div>
 
@@ -69,7 +69,7 @@
     </div>
 
     <p class="text-xs opacity-60 text-center pb-2">
-      Creato e mantenuto da <a class="underline">Simone Sala</a> 
+      Creato e mantenuto da Simone Sala
     </p>
   </div>
 </template>

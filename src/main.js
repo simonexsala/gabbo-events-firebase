@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Traffic Light Night',
-  data: 'Sabato 27 Maggio',
-  luogo: 'Club Show',
-  indirizzo: 'Via Alto Adige 83, Trento',
+  nome: 'Pool Party',
+  data: 'Domenica 2 Luglio',
+  luogo: 'Hotel Ciclamino',
+  indirizzo: 'Via Cargadori 1, Pietramurata',
   link: '',
 
-  drink: 11,
+  drink: 15.8,
   birra: 18,
   tavolo: 25,
 
@@ -25,7 +25,7 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 

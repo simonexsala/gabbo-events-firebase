@@ -53,9 +53,9 @@
       </template>
       <template #subtitle>
         <div class="flex text-xl justify-between items-center">
-          <span>{{ this.$evento.data }} &mdash; <i>{{ this.$evento.luogo }}</i></span>
+          <span>{{ this.$evento.data }} &#x2022; <i>{{ this.$evento.luogo }}</i></span>
         </div>
-        <div class="opacity-40 flex text-sm justify-between items-center">
+        <div class="opacity-50 flex text-sm justify-between items-center">
           <span>{{ this.$evento.indirizzo }}</span>
         </div>
       </template>
@@ -86,11 +86,8 @@
         </div>
         -->
 
-        <p class="!text-high-emphasis mb-2 -mt-2">
-          Ingresso con priorità
-        </p>
-        <div class="flex">
-          <div class="w-full mb-4">
+        <div class="flex-inline items-center grid-row grid-cols-2 w-full mb-4">
+          <div class="w-full">
             <ASelect
               v-model="ingressi"
               placeholder="Seleziona ingressi"
