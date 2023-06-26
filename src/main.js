@@ -10,10 +10,10 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Pool Party',
-  data: 'Domenica 2 Luglio',
-  luogo: 'Hotel Ciclamino',
-  indirizzo: 'Via Cargadori 1, Pietramurata',
+  nome: 'Il Martedì alla Spiaggia',
+  data: 'Domenica 12 Luglio',
+  luogo: 'Bar Spiaggia',
+  indirizzo: 'Open Air',
   link: '',
 
   drink: 15.8,
@@ -26,14 +26,14 @@ app.config.globalProperties.$evento = {
   
   navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: true,
+  prevenditeOnline: false,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Il sabato della Spiaggia',
-  data: 'Sabato 3 Giugno',
+  nome: 'Il Venerdì della Spiaggia',
+  data: 'Venerdì 23 Giugno',
   luogo: 'Bar Spiaggia',
-  link: 'https://drive.google.com/drive/folders/1TLGSH88D7norgihV_T-gs1QmTXs9mux2?usp=sharing',
+  link: 'https://drive.google.com/drive/folders/1ka7RPr34U25tmNxxONlZF2Ca9eSAHba9?usp=sharing',
 }
 
 app.use(router)
