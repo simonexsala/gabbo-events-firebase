@@ -26,7 +26,7 @@ app.config.globalProperties.$evento = {
   
   navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: false,
+  prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
