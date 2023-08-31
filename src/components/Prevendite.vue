@@ -58,7 +58,7 @@
         <div class="opacity-50 flex text-sm justify-between items-center">
           <span>{{ this.$evento.indirizzo }}</span>
         </div>
-        <div class="flex text-md justify-between items-center">
+        <div class="flex text-xl justify-between items-center">
           <span>Ingresso con open bar fino a mezzanotte</span>
         </div>
       </template>
