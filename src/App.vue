@@ -5,7 +5,7 @@
 <template>
   <div class="content m-a max-w-2xl">
     <div class="px-8 justify-center flex items-center w-full">
-      <img src="../public/logo.png" class="h-60" alt="logo" />
+      <img src="../public/logo.png" class="h-60 md:h-96" alt="logo" />
     </div>
 
     <div class="navbar ml-4 mr-4 rounded-lg text-center">
