@@ -71,17 +71,6 @@
 </template>
 
 <style scoped>
-.title {
-  font-family: 'Fugaz One', cursive;
-  text-transform: uppercase;
-}
-.titleGabbo {
-  font-size: 2.5rem;
-}
-.titleEvents {
-  font-size: 2rem;
-}
-
 a {
   margin-right: 0.8rem;
   user-select: none;
