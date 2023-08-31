@@ -2,7 +2,7 @@
   <div class="page m-4">
     <ACard
       title="Moonlight Eventi"
-      subtitle="di Gabriele Dorigoni"
+      subtitle="fondato da Gabriele Dorigoni"
       text="I migliori eventi di Trento e dintorni"
       variant="fill"
       color="var(--card)"
