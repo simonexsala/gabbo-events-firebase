@@ -4,12 +4,8 @@
 
 <template>
   <div class="content m-a max-w-2xl">
-    <div class="grid-row grid-cols-2 pl-8 pr-8 justify-center flex items-center w-full">
-      <img src="../public/logo.png" class="" alt="logo" />
-      <div>
-        <p class="title titleGabbo mb-2 text-sm text-primary select-none">Moonlight</p>
-        <p class="title titleEvents text-sm text-primary select-none">Eventi</p>
-      </div>
+    <div class="px-8 justify-center flex items-center w-full">
+      <img src="../public/logo.png" class="h-60" alt="logo" />
     </div>
 
     <div class="navbar ml-4 mr-4 rounded-lg text-center">
