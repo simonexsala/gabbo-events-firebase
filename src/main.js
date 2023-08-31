@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Il Martedì alla Spiaggia',
-  data: 'Domenica 12 Luglio',
-  luogo: 'Bar Spiaggia',
-  indirizzo: 'Open Air',
+  nome: 'Welcome Moonlight',
+  data: 'Sabato 16 Settembre',
+  luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 25, Trento',
   link: '',
 
-  drink: 15.8,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
