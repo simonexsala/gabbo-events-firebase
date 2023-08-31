@@ -7,8 +7,8 @@
     <div class="grid-row grid-cols-2 pl-8 pr-8 justify-center flex items-center w-full">
       <img src="../public/logo.png" class="h-[10rem]" alt="logo" />
       <div>
-        <p class="title titleGabbo mb-2 text-xl text-primary select-none">Gabbo</p>
-        <p class="title titleEvents text-sm text-primary select-none">Events</p>
+        <p class="title titleGabbo mb-2 text-md text-primary select-none">Moonlight</p>
+        <p class="title titleEvents text-sm text-primary select-none">Eventi</p>
       </div>
     </div>
 
