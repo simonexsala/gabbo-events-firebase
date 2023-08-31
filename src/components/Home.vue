@@ -1,7 +1,7 @@
 <template>
   <div class="page m-4">
     <ACard
-      title="Gabbo Events"
+      title="Moonlight"
       subtitle="di Gabriele Dorigoni"
       text="I migliori eventi di Trento e dintorni"
       variant="fill"
@@ -38,7 +38,7 @@
             subtitle="la pagina social"
             class="text-sm"
           />
-          <a :href="'https://instagram.com/gabbo_events'" class="text-sm font-semibold place-self-end">
+          <a :href="'https://instagram.com/moonlight__tn'" class="text-sm font-semibold place-self-end">
           <ATypography
             :text="['@gabbo_events', 'text-danger']"
             class="text-sm font-semibold place-self-end"
