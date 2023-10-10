@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Welcome Moonlight',
-  data: 'Sabato 16 Settembre',
-  luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 25, Trento',
+  nome: 'Palahalloween',
+  data: 'Martedì 31 Ottobre',
+  luogo: 'PalaLevico',
+  indirizzo: 'Viale Lido 4, Levico',
   link: '',
 
-  drink: 26,
+  drink: 15,
   birra: 18,
   tavolo: 25,
 
@@ -25,15 +25,15 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
-  prevenditeOnline: true,
+  soldOut: false,
+  prevenditeOnline: false,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Il Venerdì della Spiaggia',
-  data: 'Venerdì 23 Giugno',
-  luogo: 'Bar Spiaggia',
-  link: 'https://drive.google.com/drive/folders/1ka7RPr34U25tmNxxONlZF2Ca9eSAHba9?usp=sharing',
+  nome: 'Muevelo',
+  data: 'Sabato 7 Ottobre',
+  luogo: 'Rubik',
+  link: '',
 }
 
 app.use(router)
