@@ -10,10 +10,10 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Palahalloween',
-  data: 'Martedì 31 Ottobre',
-  luogo: 'PalaLevico',
-  indirizzo: 'Viale Lido 4, Levico',
+  nome: 'TikTok Night',
+  data: 'Giovedì 7 Dicembre',
+  luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 27, Trento',
   link: '',
 
   drink: 15,
