@@ -2,7 +2,7 @@
   <div class="page m-4">
     <ACard
       title="Moonlight Eventi"
-      subtitle="fondato da Gabriele Dorigoni"
+      subtitle="fondato da Gabbo Dorigoni"
       text="I migliori eventi di Trento e dintorni"
       variant="fill"
       color="var(--card)"
@@ -21,9 +21,9 @@
             class="text-sm"
           />
 
-          <a :href="'tel: +393486493733'" class="text-sm font-semibold place-self-end">
+          <a :href="'tel: +393273246941'" class="text-sm font-semibold place-self-end">
           <ATypography
-            :text="['348 649 3733', 'text-success']"
+            :text="['327 324 6941', 'text-success']"
             class="text-sm font-semibold place-self-end"
           />
           </a>
