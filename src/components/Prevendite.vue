@@ -264,7 +264,7 @@ export default {
         createOrder: (data, actions) => {
           return actions.order.create({
             purchase_units: [{
-              description: "Gabbo Events Prevendita. " + this.ingressi + " " + this.opzione,
+              description: "Moonlight Prevendita. " + this.ingressi + " " + this.opzione,
               amount: {
                 currency_code: "EUR",
                 value: this.totale,
