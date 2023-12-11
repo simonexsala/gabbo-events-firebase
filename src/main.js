@@ -10,10 +10,10 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'TikTok Night',
-  data: 'Giovedì 7 Dicembre',
-  luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 27, Trento',
+  nome: 'PALACHRISTMAS',
+  data: 'Venerdì 22 Dicembre',
+  luogo: 'PalaLevico',
+  indirizzo: 'Viale Lido 4, Levico',
   link: '',
 
   drink: 22,
@@ -26,13 +26,13 @@ app.config.globalProperties.$evento = {
   
   navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: true,
+  prevenditeOnline: false,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Muevelo',
-  data: 'Sabato 7 Ottobre',
-  luogo: 'Rubik',
+  nome: 'TikTok Night',
+  data: 'Giovedì 7 Dicembre',
+  luogo: 'Rosalpina',
   link: '',
 }
 
