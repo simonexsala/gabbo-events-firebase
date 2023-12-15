@@ -59,7 +59,7 @@
           <span>{{ this.$evento.indirizzo }}</span>
         </div>
         <div class="flex text-xl justify-between items-center">
-          <span>Ingresso con drink e shot</span>
+          <span>Ingresso con due drink</span>
         </div>
       </template>
 
