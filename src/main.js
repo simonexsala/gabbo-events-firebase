@@ -11,12 +11,12 @@ import './style.css'
 const app = createApp(App)
 app.config.globalProperties.$evento = {
   nome: 'PALACHRISTMAS',
-  data: 'Venerdì 22 Dicembre',
-  luogo: 'PalaLevico',
-  indirizzo: 'Viale Lido 4, Levico',
+  data: 'Mercoledì 27 Dicembre',
+  luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 27, Levico',
   link: '',
 
-  drink: 22,
+  drink: 17,
   birra: 18,
   tavolo: 25,
 
@@ -26,7 +26,7 @@ app.config.globalProperties.$evento = {
   
   navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: false,
+  prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
