@@ -10,7 +10,7 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'PALACHRISTMAS',
+  nome: 'Bailando',
   data: 'Mercoledì 27 Dicembre',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Levico',
