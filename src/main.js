@@ -13,7 +13,7 @@ app.config.globalProperties.$evento = {
   nome: 'Bailando',
   data: 'Mercoledì 27 Dicembre',
   luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 27, Levico',
+  indirizzo: 'Via Pianizza 27, Trento',
   link: '',
 
   drink: 17,
