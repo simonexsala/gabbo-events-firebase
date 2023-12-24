@@ -16,7 +16,7 @@ app.config.globalProperties.$evento = {
   indirizzo: 'Via Pianizza 27, Trento',
   link: '',
 
-  drink: 17,
+  drink: 21,
   birra: 18,
   tavolo: 25,
 
