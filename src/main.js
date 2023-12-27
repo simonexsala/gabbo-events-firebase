@@ -25,7 +25,7 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: false,
+  soldOut: true,
   prevenditeOnline: true,
 }
 
