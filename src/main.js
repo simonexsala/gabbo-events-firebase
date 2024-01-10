@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Bailando',
-  data: 'Mercoledì 27 Dicembre',
+  nome: 'Fluo Party',
+  data: 'Sabato 20 Gennaio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   link: '',
 
-  drink: 11.5,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
@@ -25,13 +25,13 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'TikTok Night',
-  data: 'Giovedì 7 Dicembre',
+  nome: 'Bailand',
+  data: 'Mercoledì 27 Dicembre',
   luogo: 'Rosalpina',
   link: '',
 }
