@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Fluo Party',
-  data: 'Sabato 20 Gennaio',
+  nome: 'HYPE',
+  data: 'Sabato 17 Febbraio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   link: '',
@@ -25,13 +25,13 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Bailand',
-  data: 'Mercoledì 27 Dicembre',
+  nome: 'Fluo Party',
+  data: 'Sabato 20 Gennaio',
   luogo: 'Rosalpina',
   link: '',
 }
