@@ -10,10 +10,12 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'HYPE',
-  data: 'Sabato 17 Febbraio',
+  nome: 'DEMBOW',
+  data: 'Sabato 16 Marzo',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
+  tipologia: 'Open bar fino a mezzanotte',
+  // tipologia: 'Ingresso con un drink',
   link: '',
 
   drink: 16.5,
@@ -30,10 +32,12 @@ app.config.globalProperties.$evento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Fluo Party',
-  data: 'Sabato 20 Gennaio',
+  nome: 'HYPE',
+  data: 'Sabato 17 Febbraio',
   luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 27, Trento',
   link: '',
+
 }
 
 app.use(router)
