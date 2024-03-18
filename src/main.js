@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'DEMBOW',
-  data: 'Sabato 16 Marzo',
+  nome: 'Il Ballo delle Scuole',
+  data: 'Sabato 30 Marzo',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   tipologia: 'Open bar fino a mezzanotte',
@@ -32,8 +32,8 @@ app.config.globalProperties.$evento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'HYPE',
-  data: 'Sabato 17 Febbraio',
+  nome: 'Dembow',
+  data: 'Sabato 16 Febbraio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   link: '',
