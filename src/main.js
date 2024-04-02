@@ -10,15 +10,15 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Il Ballo delle Scuole',
-  data: 'Sabato 30 Marzo',
+  nome: 'Traffic Light Party',
+  data: 'Sabato 13 Aprile',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
-  tipologia: 'Open bar fino a mezzanotte',
-  // tipologia: 'Ingresso con un drink',
+  // tipologia: 'Open bar fino a mezzanotte',
+  tipologia: 'Ingresso con un drink',
   link: '',
 
-  drink: 20,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
