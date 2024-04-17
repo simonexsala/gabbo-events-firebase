@@ -24,7 +24,7 @@ app.post('/', async (req, res) => {
       const db = admin.firestore();
 
       // const email = "simonexsala@gmail.com";
-      const shortCode = body.slice(-6);
+      const shortCode = body.id.slice(-6);
       const email = body.resource.payer.email_address;
       const name = body.resource.payer.name;
       const time = body.resource.update_time;
@@ -50,7 +50,7 @@ app.post('/', async (req, res) => {
       await db.collection('ingressi').doc(body.id).set({
         shortCode: shortCode,
         email: email,
-        numero: quantity,
+        quantity: quantity,
         used: 0,
       });
 

@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Traffic Light Party',
-  data: 'Sabato 13 Aprile',
+  nome: 'Dembow',
+  data: 'Martedì 30 Aprile',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   // tipologia: 'Open bar fino a mezzanotte',
@@ -32,8 +32,8 @@ app.config.globalProperties.$evento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Dembow',
-  data: 'Sabato 16 Febbraio',
+  nome: 'Traffic Light Party',
+  data: 'Sabato 13 Aprile',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   link: '',
