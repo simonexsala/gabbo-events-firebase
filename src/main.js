@@ -18,7 +18,7 @@ app.config.globalProperties.$evento = {
   tipologia: 'Ingresso con un drink',
   link: '',
 
-  drink: 16.5,
+  drink: 20,
   birra: 18,
   tavolo: 25,
 
