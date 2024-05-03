@@ -10,15 +10,15 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Dembow',
-  data: 'Martedì 30 Aprile',
+  nome: 'The Last Dance',
+  data: 'Sabato 11 Maggio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   // tipologia: 'Open bar fino a mezzanotte',
   tipologia: 'Ingresso con un drink',
   link: '',
 
-  drink: 20,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
