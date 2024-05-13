@@ -10,12 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'The Last Dance',
-  data: 'Sabato 11 Maggio',
-  luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 27, Trento',
+  nome: 'Beach School Festival',
+  data: 'Martedì 11 Giugno',
+  luogo: 'Wolf Beach Bar',
+  indirizzo: 'Via Lungolago 5, Caldonazzo',
   // tipologia: 'Open bar fino a mezzanotte',
-  tipologia: 'Ingresso con un drink',
+  // tipologia: 'Ingresso con un drink',
+  tipologia: 'Ticket ingresso',
   link: '',
 
   drink: 16.5,
@@ -32,8 +33,8 @@ app.config.globalProperties.$evento = {
 }
 
 app.config.globalProperties.$oldEvento = {
-  nome: 'Traffic Light Party',
-  data: 'Sabato 13 Aprile',
+  nome: 'The Last Dance',
+  data: 'Sabato 11 Maggio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   link: '',
