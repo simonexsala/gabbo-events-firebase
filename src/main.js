@@ -11,7 +11,7 @@ import './style.css'
 const app = createApp(App)
 app.config.globalProperties.$evento = {
   nome: 'Beach School Festival',
-  data: 'Martedì 11 Giugno',
+  data: 'Settembre',
   luogo: 'Wolf Beach Bar',
   indirizzo: 'Via Lungolago 5, Caldonazzo',
   // tipologia: 'Open bar fino a mezzanotte',
@@ -28,7 +28,7 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: false,
+  soldOut: true,
   prevenditeOnline: true,
 }
 
