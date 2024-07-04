@@ -21,9 +21,9 @@
             class="text-sm"
           />
 
-          <a :href="'tel: +393246225078'" class="text-sm font-semibold place-self-end">
+          <a :href="'tel: +393486493733'" class="text-sm font-semibold place-self-end">
           <ATypography
-            :text="['324 622 5078', 'text-success']"
+            :text="['348 649 3733', 'text-success']"
             class="text-sm font-semibold place-self-end"
           />
           </a>
