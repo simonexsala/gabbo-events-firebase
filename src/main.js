@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Beach School Festival',
-  data: 'Settembre',
-  luogo: 'Wolf Beach Bar',
-  indirizzo: 'Via Lungolago 5, Caldonazzo',
+  nome: 'The Moonlight Festival',
+  data: 'Sabato 14 Settembre',
+  luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 27, Trento',
   // tipologia: 'Open bar fino a mezzanotte',
-  // tipologia: 'Ingresso con un drink',
-  tipologia: 'Ticket ingresso',
+  tipologia: 'Ingresso con un drink',
+  // tipologia: 'Ticket ingresso',
   link: '',
 
   drink: 16.5,
@@ -28,7 +28,7 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 
