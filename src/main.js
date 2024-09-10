@@ -19,7 +19,7 @@ app.config.globalProperties.$evento = {
   // tipologia: 'Ticket ingresso',
   link: '',
 
-  drink: 20,
+  drink: 21,
   birra: 18,
   tavolo: 25,
 
