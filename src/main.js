@@ -10,16 +10,16 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'The Moonlight Festival',
-  data: 'Sabato 14 Settembre',
+  nome: 'The Opening',
+  data: 'Sabato 28 Settembre',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   // tipologia: 'Open bar fino a mezzanotte',
-  tipologia: 'Ingresso con un drink',
-  // tipologia: 'Ticket ingresso',
+  // tipologia: 'Ingresso con un drink',
+  tipologia: 'Ticket ingresso',
   link: '',
 
-  drink: 21,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
