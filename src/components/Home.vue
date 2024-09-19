@@ -38,9 +38,9 @@
             subtitle="la pagina social"
             class="text-sm"
           />
-          <a :href="'https://instagram.com/moonlight__tn'" class="text-sm font-semibold place-self-end">
+          <a :href="'https://instagram.com/moonlight.eventi'" class="text-sm font-semibold place-self-end">
           <ATypography
-            :text="['@moonlight__tn', 'text-danger']"
+            :text="['@moonlight.eventi', 'text-danger']"
             class="text-sm font-semibold place-self-end"
           />
           </a>
