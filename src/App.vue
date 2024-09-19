@@ -12,7 +12,7 @@
       <div class="inline-block p-3">
         <RouterLink class="pt-3 pb-2" to="/">Home</RouterLink>
         <RouterLink class="pt-3 pb-2" to="/prevendite">Prevendite</RouterLink>
-        <RouterLink class="pt-3 pb-2" to="/navette">Navette</RouterLink>
+        
         <RouterLink class="pt-3 pb-2" to="/foto">Foto</RouterLink>
         <RouterLink class="pt-3 pb-2 lastChild" to="/eventi">Eventi</RouterLink>
       </div>
@@ -23,48 +23,7 @@
       </transition>
     </RouterView>
 
-   <div class="grid-row grid-cols-3 mb-4">
-      <div class="flex gap-x-2 ml-4 items-center">
-        <AAvatar
-          icon="i-bx-trending-up"
-          color="success"
-          class="rounded-9 text-[1rem]"
-        />
-        <ATypography
-          class="!children:leading-tight"
-          :title="['Eventi', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['22', 'text-md font-bold !text-high-emphasis']"
-        />
-      </div>
-
-      <div class="flex gap-x-2 items-center">
-        <AAvatar
-          icon="i-bx-navigation"
-          color="danger"
-          class="rounded-9 text-[1rem]"
-        />
-        <ATypography
-          class="!children:leading-tight"
-          :title="['Location', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['13', 'text-md font-bold !text-high-emphasis']"
-        />
-      </div>
-
-      <div class="flex gap-x-2 items-center">
-        <AAvatar
-          icon="i-bx-face"
-          color="info"
-          class="rounded-9 text-[1rem]"
-        />
-        <ATypography
-          class="!children:leading-tight"
-          :title="['Clienti', 'text-xs !text-medium-emphasis font-normal']"
-          :subtitle="['6000+', 'text-md font-bold !text-high-emphasis']"
-        />
-      </div>
-    </div>
-
-    <p class="text-xs opacity-60 text-center pb-2">
+    <p class="text-xs opacity-60 text-center pb-2 mt-4">
       Creato e mantenuto da Simone Sala
     </p>
   </div>
