@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'The Opening',
-  data: 'Sabato 28 Settembre',
+  nome: 'Open Bar',
+  data: 'Sabato 12 Ottobre',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
-  // tipologia: 'Open bar fino a mezzanotte',
+  tipologia: 'Open bar fino a mezzanotte',
   // tipologia: 'Ingresso con un drink',
-  tipologia: 'Ticket ingresso',
+  // tipologia: 'Ticket ingresso',
   link: '',
 
   drink: 16.5,
