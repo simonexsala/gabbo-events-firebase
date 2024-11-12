@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Open Bar',
-  data: 'Sabato 12 Ottobre',
+  nome: 'Dembow',
+  data: 'Sabato 16 Novembre',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   tipologia: 'Open bar fino a mezzanotte',
@@ -19,7 +19,7 @@ app.config.globalProperties.$evento = {
   // tipologia: 'Ticket ingresso',
   link: '',
 
-  drink: 21,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
@@ -28,7 +28,7 @@ app.config.globalProperties.$evento = {
   tavoloOpzione: false,
   
   navetteAttive: false,
-  soldOut: true,
+  soldOut: false,
   prevenditeOnline: true,
 }
 
