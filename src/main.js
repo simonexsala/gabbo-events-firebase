@@ -10,12 +10,12 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Dembow',
-  data: 'Sabato 16 Novembre',
+  nome: 'Fluo Party',
+  data: 'Sabato 30 Novembre',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
-  tipologia: 'Open bar fino a mezzanotte',
-  // tipologia: 'Ingresso con un drink',
+  // tipologia: 'Open bar fino a mezzanotte',
+  tipologia: 'Ingresso con un drink',
   // tipologia: 'Ticket ingresso',
   link: '',
 
