@@ -10,10 +10,10 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Fluo Party',
-  data: 'Sabato 30 Novembre',
-  luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 27, Trento',
+  nome: 'Il Ghost',
+  data: 'Sabato 4 Gennaio',
+  luogo: 'Nova Club',
+  indirizzo: 'Via Alto Adige 83, Trento',
   // tipologia: 'Open bar fino a mezzanotte',
   tipologia: 'Ingresso con un drink',
   // tipologia: 'Ticket ingresso',
