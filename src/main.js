@@ -10,7 +10,7 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Il Ghost',
+  nome: 'Dembow & Reggaeton',
   data: 'Sabato 18 Gennaio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
