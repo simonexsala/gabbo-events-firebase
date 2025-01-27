@@ -10,13 +10,13 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Dembow & Reggaeton',
-  data: 'Sabato 18 Gennaio',
+  nome: 'Tutte le baddies',
+  data: 'Sabato 1 Febbraio',
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
   // indirizzo: 'Via Alto Adige 83, Trento',
-  tipologia: 'Open bar fino a mezzanotte',
-  // tipologia: 'Ingresso con un drink',
+  // tipologia: 'Open bar fino a mezzanotte',
+  tipologia: 'Ingresso con un drink',
   // tipologia: 'Ticket ingresso',
   link: '',
 
