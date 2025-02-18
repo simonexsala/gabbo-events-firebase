@@ -10,17 +10,21 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Tutte le baddies',
-  data: 'Sabato 1 Febbraio',
-  luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 27, Trento',
-  // indirizzo: 'Via Alto Adige 83, Trento',
+  nome: 'Carnival Student Party',
+  data: 'Sabato 1 Marzo',
+  
+  // luogo: 'Rosalpina',
+  // indirizzo: 'Via Pianizza 27, Trento',
+  
+  luogo: 'Nova Club',
+  indirizzo: 'Via Alto Adige 83, Trento',
+  
   // tipologia: 'Open bar fino a mezzanotte',
-  tipologia: 'Ingresso con un drink',
-  // tipologia: 'Ticket ingresso',
+  // tipologia: 'Ingresso con un drink',
+  tipologia: 'Ticket ingresso',
   link: '',
 
-  drink: 16.5,
+  drink: 12,
   birra: 18,
   tavolo: 25,
 
@@ -30,7 +34,7 @@ app.config.globalProperties.$evento = {
   
   navetteAttive: false,
   soldOut: false,
-  prevenditeOnline: false,
+  prevenditeOnline: true,
 }
 
 app.config.globalProperties.$oldEvento = {
