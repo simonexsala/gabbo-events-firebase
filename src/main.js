@@ -10,21 +10,21 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Carnival Student Party',
-  data: 'Sabato 1 Marzo',
+  nome: 'Exclusive Party',
+  data: 'Sabato 15 Marzo',
   
-  // luogo: 'Rosalpina',
-  // indirizzo: 'Via Pianizza 27, Trento',
+  luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 27, Trento',
   
-  luogo: 'Nova Club',
-  indirizzo: 'Via Alto Adige 83, Trento',
+  // luogo: 'Nova Club',
+  // indirizzo: 'Via Alto Adige 83, Trento',
   
   // tipologia: 'Open bar fino a mezzanotte',
   // tipologia: 'Ingresso con un drink',
   tipologia: 'Ticket ingresso',
   link: '',
 
-  drink: 12,
+  drink: 16.5,
   birra: 18,
   tavolo: 25,
 
