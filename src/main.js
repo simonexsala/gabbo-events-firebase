@@ -11,10 +11,10 @@ import './style.css'
 const app = createApp(App)
 app.config.globalProperties.$evento = {
   nome: 'Ingresso evento',
-  data: 'Sabato 15 o Venerdì 21 Marzo',
+  data: 'Per il 15 oppure 21 Marzo',
 
-  luogo: 'Rosalpina',
-  indirizzo: 'Nova Club',
+  luogo: 'Rosalpina o Nova Club',
+  indirizzo: '',
   
   
   // luogo: 'Rosalpina',
