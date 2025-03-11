@@ -10,11 +10,15 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Exclusive Party',
-  data: 'Sabato 15 Marzo',
-  
+  nome: 'Ingresso evento',
+  data: 'Sabato 15 o Venerdì 21 Marzo',
+
   luogo: 'Rosalpina',
-  indirizzo: 'Via Pianizza 27, Trento',
+  indirizzo: 'Nova Club',
+  
+  
+  // luogo: 'Rosalpina',
+  // indirizzo: 'Via Pianizza 27, Trento',
   
   // luogo: 'Nova Club',
   // indirizzo: 'Via Alto Adige 83, Trento',
