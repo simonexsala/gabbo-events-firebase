@@ -10,7 +10,7 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Ingresso evento',
+  nome: 'Traffic Light Party',
   data: 'Sabato 5 Aprile',
 
   luogo: 'Rosalpina',
