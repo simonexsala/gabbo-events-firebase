@@ -18,20 +18,23 @@ app.use(bodyParser.json());
 app.post('/', async (req, res) => {
   try {
     const body = req.body;
-    // console.log(JSON.stringify(body));
 
     if (body.event_type === 'CHECKOUT.ORDER.APPROVED') {
+      const time = body.resource.update_time;
+
+      // Only proceed if time is not null or undefined
+      if (!time) {
+        console.log('No update_time provided, skipping database writes.');
+        return res.status(200).send('No time provided, skipped DB write.');
+      }
+
       const db = admin.firestore();
 
-      // const email = "simonexsala@gmail.com";
       const shortCode = body.id.slice(-6);
       const email = body.resource.payer.email_address;
       const name = body.resource.payer.name;
-      const time = body.resource.update_time;
       const amount = body.resource.purchase_units[0].amount.value;
       const [quantity, type] = body.resource.purchase_units[0].description.split(' ').slice(-2);
-      // const capitalizedType = type.charAt(0).toUpperCase();
-      // const qrCodeBody = `${body.id}-I${quantity}-T${capitalizedType}`;
       const qrCodeBody = body.id;
 
       const qrCode = await generateQRCode(qrCodeBody);
@@ -66,16 +69,6 @@ app.post('/', async (req, res) => {
           },
         },
       });
-      // await db.collection('mail').doc(body.id).set({
-      //   to: email,
-      //   template: {
-      //     name: "lista",
-      //     data: {
-      //       nome: name.given_name,
-      //       numero: quantity,
-      //     },
-      //   },
-      // });
     } else {
       console.log(`Received event of type: ${body.event_type}`);
     }
