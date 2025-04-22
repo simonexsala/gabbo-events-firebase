@@ -20,8 +20,8 @@ app.config.globalProperties.$evento = {
   // indirizzo: 'Via Alto Adige 83, Trento',
   
   // tipologia: 'Open bar fino a mezzanotte',
-  // tipologia: 'Ingresso con un drink',
-  tipologia: 'Ticket ingresso',
+  tipologia: 'Ingresso con un drink',
+  // tipologia: 'Ticket ingresso',
   link: '',
 
   drink: 16.5,
