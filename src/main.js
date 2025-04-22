@@ -10,14 +10,14 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'West Milan',
-  data: 'Sabato 19 Aprile',
+  nome: 'Closing Season Party',
+  data: 'Venerdì 25 Aprile',
 
-  // luogo: 'Rosalpina',
-  // indirizzo: 'Via Pianizza 27, Trento',
+  luogo: 'Rosalpina',
+  indirizzo: 'Via Pianizza 27, Trento',
   
-  luogo: 'Nova Club',
-  indirizzo: 'Via Alto Adige 83, Trento',
+  // luogo: 'Nova Club',
+  // indirizzo: 'Via Alto Adige 83, Trento',
   
   // tipologia: 'Open bar fino a mezzanotte',
   // tipologia: 'Ingresso con un drink',
