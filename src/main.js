@@ -10,8 +10,8 @@ import './style.css'
 
 const app = createApp(App)
 app.config.globalProperties.$evento = {
-  nome: 'Closing Season Party',
-  data: 'Venerdì 25 Aprile',
+  nome: 'Traffic Light Party',
+  data: 'Sabato 17 Maggio',
 
   luogo: 'Rosalpina',
   indirizzo: 'Via Pianizza 27, Trento',
